@@ -58,12 +58,13 @@ values ('Article_ID_1','Introduction to Embedded','','') ,
 Create Table User_Follow_Category_lhub
 (
   Article_ID varchar(50) ,
-    USER_id varchar(50) 
+    USER_id varchar(50) ,
+	Article_author varchar(50)
   
  
 );
 
-insert into User_Follow_Category_lhub (Article_ID ,USER_id)
+insert into User_Follow_Category_lhub (Article_ID ,USER_id )
 values ('Article_ID_1','USERID_1'),
 ('Article_ID_2','USERID_2');
 -------------------------------------------------
