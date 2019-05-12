@@ -1,10 +1,5 @@
-Create Database Learning_hub
-on
-(
-	Name ='Learning_hub',
-	FileName ='f:\learing_hub.sy'
-)
-go
+
+
 -----------------------------TABLE OF CATEGORIES-------------------------
 Create Table category_lhub
 (
