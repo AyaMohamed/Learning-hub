@@ -1,11 +1,11 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site1.master.cs" Inherits="Lhub_Project.Site1" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="WelcomePage.aspx.cs" Inherits="Lhub_Project.WelcomePage" %>
 
 <!DOCTYPE HTML>
 <html>
 	<head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Learning Hub</title>
+	<title>Eskwela Template</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="description" content="" />
 	<meta name="keywords" content="" />
@@ -59,57 +59,82 @@
 	<body>
 		
 	<div class="colorlib-loader"></div>
-
 	<div id="page">
+
+
 		<nav class="colorlib-nav" role="navigation">
-		<%--	<div class="upper-menu">
-				<div class="container">
-					<div class="row">
-						<div class="col-xs-4">
-							<p>Welcome to Learning-Hub</p>
-						</div>
-						
-					</div>
-				</div>
-			</div>--%>
+			
 			<div class="top-menu" style="height:30px;vertical-align:middle;">
 				<div class="container">
 					<div class="row" style="margin-top:-15px">
-						<div class="col-md-4">
-							<div id="colorlib-logo"><a href="HomePage.aspx">Learning Hub</a></div>
+						<div class="col-md-2"  style="width:100%; text-align:center;vertical-align:middle ">
+							<div style="vertical-align:middle;"  id="colorlib-logo"><a href="WelcomePage.aspx">Learning hub</a></div>
 						</div>
-						<div class="col-md-8 text-right menu-1">
+						<%--<div class="col-md-10 text-right menu-1">
 							<ul>
-								<li class="active"><a href="HomePage.aspx">Home</a></li>
+								<li class="active"><a href="index.html">Home</a></li>
 								<li class="has-dropdown">
-                                    <a href="#">Computer science</a>
-                                    <a href="#">Networks</a>
-                                    <a href="#">Artificial Intelligence</a>
-                                    <a href="#">Virtual reality</a>
+									<a href="courses.html">Courses</a>
+									<ul class="dropdown">
+										<li><a href="courses-single.html">Courses Single</a></li>
+										<li><a href="#">Mobile Apps</a></li>
+										<li><a href="#">Website</a></li>
+										<li><a href="#">Web Design</a></li>
+										<li><a href="#">WordPress</a></li>
+									</ul>
 								</li>
-								
+								<li><a href="about.html">About</a></li>
+								<li><a href="event.html">Events</a></li>
+								<li><a href="news.html">News</a></li>
+								<li><a href="contact.html">Contact</a></li>
+								<li class="btn-cta"><a href="#"><span>Free Trial</span></a></li>
 							</ul>
-						</div>
-					</div>
+						</div>--%>
+					</div> 
 				</div>
 			</div>
-		</nav>
-		<aside id="colorlib-hero">
-			<div class="flexslider">
-				<ul class="slides">
-			   	<asp:ContentPlaceHolder ID="homePageID" runat="server">      
-                   
-			   	</asp:ContentPlaceHolder>
 
-			   	
+		</nav>
+
+		<aside id="colorlib-hero">
+			<div  class="flexslider">
+				<ul class="slides" >
+			   	<li style="background-image: url(images/img_bg_1.jpg);">
+			   		<div class="overlay"></div>
+			   		<div class="container-fluid">
+			   			<div class="row">
+				   			<div class="col-md-8 col-sm-12 col-md-offset-2 slider-text">
+				   				<div class="slider-text-inner text-center">
+				   					<h1>Best Online Learning System</h1>
+				   					<p><a href="SignUpPage.aspx" class="btn btn-primary btn-lg btn-learn">Register</a></p>
+				   				</div>
+				   			</div>
+				   		</div>
+			   		</div>
+			   	</li>
+			   	<li style="background-image: url(images/img_bg_2.jpg);">
+			   		<div class="overlay"></div>
+			   		<div class="container-fluid">
+			   			<div class="row">
+				   			<div class="col-md-8 col-sm-12 col-md-offset-2 slider-text">
+				   				<div class="slider-text-inner text-center">
+				   					<h1>Learn more from online resources</h1>
+				   					<p><a href="LoginPage.aspx" class="btn btn-primary btn-lg btn-learn">Login</a></p>
+				   				</div>
+				   			</div>
+				   		</div>
+			   		</div>
+			   	</li>
+			   		
 			  	</ul>
 		  	</div>
 		</aside>
+		</div>
 	
-	<div class="gototop js-top">
+	<%--<div class="gototop js-top">
 		<a href="#" class="js-gotop"><i class="icon-arrow-up2"></i></a>
-	</div>
-	</div>
+	</div>--%>
+	
 	<!-- jQuery -->
 	<script src="js/jquery.min.js"></script>
 	<!-- jQuery Easing -->
