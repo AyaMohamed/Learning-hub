@@ -62,7 +62,7 @@
 
 	<div id="page">
 		<nav class="colorlib-nav" role="navigation">
-			<div class="upper-menu">
+		<%--	<div class="upper-menu">
 				<div class="container">
 					<div class="row">
 						<div class="col-xs-4">
@@ -71,25 +71,21 @@
 						
 					</div>
 				</div>
-			</div>
-			<div class="top-menu">
+			</div>--%>
+			<div class="top-menu" style="height:30px;vertical-align:middle;">
 				<div class="container">
-					<div class="row">
-						<div class="col-md-2">
-							<div id="colorlib-logo"><a href="index.html">Learning Hub</a></div>
+					<div class="row" style="margin-top:-15px">
+						<div class="col-md-4">
+							<div id="colorlib-logo"><a href="HomePage.aspx">Learning Hub</a></div>
 						</div>
 						<div class="col-md-8 text-right menu-1">
 							<ul>
-								<li class="active"><a href="WebForm1.aspx">Home</a></li>
+								<li class="active"><a href="HomePage.aspx">Home</a></li>
 								<li class="has-dropdown">
-									<a href="courses.html"  style="white-space:normal;width:200px">Categories</a>
-									<ul class="dropdown">
-										<li style="width:2000px;"><a href="courses-single.html">Computer science</a></li>
-										<li><a href="#">Networks</a></li>
-										<li><a href="#">Artificial Intelligence</a></li>
-										<li><a href="#">Virtual reality</a></li>
-										<li><a href="#">Block Chain</a></li>
-									</ul>
+                                    <a href="#">Computer science</a>
+                                    <a href="#">Networks</a>
+                                    <a href="#">Artificial Intelligence</a>
+                                    <a href="#">Virtual reality</a>
 								</li>
 								
 							</ul>

@@ -25,7 +25,7 @@
     <Property Name="USER_Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="USER_password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
   </EntityType>
-  <EntityContainer Name="Learning_hubEntities1" annotation:LazyLoadingEnabled="true">
+  <EntityContainer Name="Learning_hubEntities2" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="Article_lhub" EntityType="Self.Article_lhub" />
     <EntitySet Name="category_lhub" EntityType="Self.category_lhub" />
     <EntitySet Name="USER_lhub" EntityType="Self.USER_lhub" />
