@@ -75,7 +75,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="ArticlesPage.aspx" />
     <Content Include="c89fe8b0-e8a1-4f19-ab56-ea8983ce5f08.ico" />
+    <Content Include="CategoryHome.aspx" />
     <Content Include="css\animate.css" />
     <Content Include="css\bootstrap.css" />
     <Content Include="css\flexslider.css" />
@@ -104,6 +106,7 @@
     <Content Include="fonts\Linearicons-Free-v1.0.0\icon-font.min.css" />
     <Content Include="fonts\Linearicons-Free-v1.0.0\WebFont\Linearicons-Free.svg" />
     <Content Include="HomePage.aspx" />
+    <Content Include="images\add.png" />
     <Content Include="images\bg-01.jpg" />
     <Content Include="images\blog-1.jpg" />
     <Content Include="images\blog-2.jpg" />
@@ -111,6 +114,7 @@
     <Content Include="images\blog-4.jpg" />
     <Content Include="images\blog-5.jpg" />
     <Content Include="images\blog-6.jpg" />
+    <Content Include="images\c89fe8b0-e8a1-4f19-ab56-ea8983ce5f08.jpg" />
     <Content Include="images\classes-1.jpg" />
     <Content Include="images\classes-2.jpg" />
     <Content Include="images\classes-3.jpg" />
@@ -131,6 +135,8 @@
     <Content Include="images\img_bg_4.jpg" />
     <Content Include="images\loader.gif" />
     <Content Include="images\loc.png" />
+    <Content Include="images\logo.png" />
+    <Content Include="images\notification.png" />
     <Content Include="images\person1.jpg" />
     <Content Include="images\person2.jpg" />
     <Content Include="images\person3.jpg" />
@@ -188,6 +194,21 @@
     <Content Include="WelcomePage.aspx" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ArticlesPage.aspx.cs">
+      <DependentUpon>ArticlesPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ArticlesPage.aspx.designer.cs">
+      <DependentUpon>ArticlesPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CategoryHome.aspx.cs">
+      <DependentUpon>CategoryHome.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CategoryHome.aspx.designer.cs">
+      <DependentUpon>CategoryHome.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DataAccessLayer.cs" />
     <Compile Include="HomePage.aspx.cs">
       <DependentUpon>HomePage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -210,13 +231,7 @@
     <Compile Include="SignUpPage.aspx.designer.cs">
       <DependentUpon>SignUpPage.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Site1.Master.cs">
-      <DependentUpon>Site1.Master</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Site1.Master.designer.cs">
-      <DependentUpon>Site1.Master</DependentUpon>
-    </Compile>
+    <Compile Include="User.cs" />
     <Compile Include="WelcomePage.aspx.cs">
       <DependentUpon>WelcomePage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -307,7 +322,6 @@
     <Content Include="fonts\poppins\Poppins-Thin.ttf" />
     <Content Include="fonts\poppins\Poppins-ThinItalic.ttf" />
     <None Include="packages.config" />
-    <Content Include="Site1.Master" />
     <Content Include="sass\.DS_Store" />
     <Content Include="sass\bootstrap.scss" />
     <Content Include="sass\bootstrap\.DS_Store" />

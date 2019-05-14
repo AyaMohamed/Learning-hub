@@ -43,7 +43,7 @@
 						Username
 					</span>
 					<div class="wrap-input100 validate-input m-b-36" data-validate = "Username is required">
-                        <asp:TextBox ID="usernameTxt" runat="server" CssClass="input100"></asp:TextBox>
+                        <asp:TextBox ID="usernameTxt" runat="server" CssClass="input100" ValidationGroup=""></asp:TextBox>
                         <!--<input class="input100" type="text" name="username" >-->
 						<span class="focus-input100"></span>
 					</div>
