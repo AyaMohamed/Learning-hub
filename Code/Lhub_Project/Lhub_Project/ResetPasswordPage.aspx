@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="LoginPage.aspx.cs" Inherits="Lhub_Project.LoginPage" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ResetPasswordPage.aspx.cs" Inherits="Lhub_Project.ResetPasswordPage" %>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -35,28 +35,28 @@
         <div class="container-login100">
             <div class="wrap-login100 p-l-85 p-r-85 p-t-55 p-b-55">
                 <form class="login100-form validate-form flex-sb flex-w" method="post" runat="server">
-                    <span class="login100-form-title p-b-32">Account Login
+                    <span class="login100-form-title p-b-32">Password Reset
                     </span>
                     <br />
                     <br />
                     <br />
                     <br />
-                    <span class="txt1 p-b-11">Username
+                    <span class="txt1 p-b-11">email
                     </span>
-                    <div class="wrap-input100 validate-input m-b-36" data-validate="Username is required">
-                        <asp:TextBox ID="usernameTxt" runat="server" CssClass="input100" ValidationGroup=""></asp:TextBox>
+                    <div class="wrap-input100 validate-input m-b-36" data-validate="email is required">
+                        <asp:TextBox ID="emailTxt" runat="server" CssClass="input100" ValidationGroup=""></asp:TextBox>
                         <!--<input class="input100" type="text" name="username" >-->
                         <span class="focus-input100"></span>
                     </div>
 
-                    <span class="txt1 p-b-11" id="#password">Password
+                    <span class="txt1 p-b-11" id="#password">New Password
                     </span>
                     <div class="wrap-input100 validate-input m-b-12" data-validate="Password is required">
 
                         <span class="btn-show-pass" id="#password-field">
                             <i class="fa fa-eye"></i>
                         </span>
-                        <asp:TextBox ID="passwordTxt" CssClass="input100" runat="server" TextMode="Password"></asp:TextBox>
+                        <asp:TextBox ID="newpasswordTxt" CssClass="input100" runat="server" TextMode="Password"></asp:TextBox>
                         <!--<input class="input100" type="password" name="pass" >-->
                         <span class="focus-input100"></span>
                     </div>
@@ -64,10 +64,9 @@
 
 
                     <div class="container-login100-form-btn">
-                        <asp:Button ID="loginBtn" runat="server" CssClass="login100-form-btn" Text="Login" OnClick="loginBtn_Click" />
-                        <asp:Button ID="forgetPassBtn" runat="server" CssClass="login100-form-btn" Text="Forget your Password" OnClick="forgetPassBtn_Click" />
+                        <asp:Button ID="confirmBtn" runat="server" CssClass="login100-form-btn" Text="Confirm" OnClick="confirmBtn_Click" />
 
-                        <a href="SignUpPage.aspx" class="dis-block txt3 hov1 p-r-30 p-t-10 p-b-10 p-l-30">Create account
+                        <a href="LoginPage.aspx" class="dis-block txt3 hov1 p-r-30 p-t-10 p-b-10 p-l-30">Login
 							<i class="fa fa-long-arrow-right m-l-5"></i>
                         </a>
                     </div>

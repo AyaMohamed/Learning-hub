@@ -10,42 +10,42 @@
 namespace Lhub_Project {
     
     
-    public partial class LoginPage {
+    public partial class CategoryOage {
         
         /// <summary>
-        /// usernameTxt control.
+        /// searchTxt control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox usernameTxt;
+        protected global::System.Web.UI.WebControls.TextBox searchTxt;
         
         /// <summary>
-        /// passwordTxt control.
+        /// categoryNameID control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox passwordTxt;
+        protected global::System.Web.UI.WebControls.Label categoryNameID;
         
         /// <summary>
-        /// loginBtn control.
+        /// Button1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button loginBtn;
+        protected global::System.Web.UI.WebControls.Button Button1;
         
         /// <summary>
-        /// forgetPassBtn control.
+        /// articleGrid control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button forgetPassBtn;
+        protected global::System.Web.UI.WebControls.GridView articleGrid;
     }
 }

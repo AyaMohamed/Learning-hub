@@ -30,5 +30,10 @@ namespace Lhub_Project
             //    //display alert"username or password incorrect"
             //}
         }
+
+        protected void forgetPassBtn_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("ResetPasswordPage.aspx");
+        }
     }
 }

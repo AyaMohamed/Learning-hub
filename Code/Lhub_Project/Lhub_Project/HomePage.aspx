@@ -86,7 +86,7 @@
 							<ul style="vertical-align:middle;padding:12px">
 								<li  class="active"><a href="HomePage.aspx">Home</a></li>
 								<li  class="has-dropdown">
-                                    <a href="#">Software</a>
+                                    <a href="CategoryPage.aspx">Software</a>
                                     <a href="#">Networks</a>
                                     <a href="#">Biotechnology</a>
                                     <a href="#">Embedded Systems</a>
