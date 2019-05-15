@@ -7,13 +7,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Lhub_Project
-{
-
-
-    public partial class LoginPage
-    {
-
+namespace Lhub_Project {
+    
+    
+    public partial class Admin {
+        
         /// <summary>
         /// usernameTxt control.
         /// </summary>
@@ -22,7 +20,7 @@ namespace Lhub_Project
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox usernameTxt;
-
+        
         /// <summary>
         /// passwordTxt control.
         /// </summary>
@@ -31,7 +29,7 @@ namespace Lhub_Project
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox passwordTxt;
-
+        
         /// <summary>
         /// loginBtn control.
         /// </summary>
@@ -40,13 +38,5 @@ namespace Lhub_Project
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button loginBtn;
-        /// <summary>
-        /// forgetPassBtn control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button forgetPassBtn;
     }
 }

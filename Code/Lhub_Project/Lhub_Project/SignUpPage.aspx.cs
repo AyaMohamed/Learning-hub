@@ -13,5 +13,13 @@ namespace Lhub_Project
         {
 
         }
+
+
+
+        protected void SignUp_Click(object sender, EventArgs e)
+        {
+            DataAccessLayer dl = new DataAccessLayer();
+            dl.Registertion(usernametxt.Text.ToString(), FirstNametxt.Text.ToString(), LastNametxt.Text.ToString(), Emailtxt.Text.ToString(), passwordtxt.Text.ToString(), Confrim_passtxt.Text.ToString());
+        }
     }
 }

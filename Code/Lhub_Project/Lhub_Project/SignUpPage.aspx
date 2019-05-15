@@ -35,7 +35,7 @@
 	<div class="limiter">
 		<div class="container-login100">
 			<div class="wrap-login100 p-l-85 p-r-85 p-t-55 p-b-55">
-				<form class="login100-form validate-form flex-sb flex-w">
+				<form class="login100-form validate-form flex-sb flex-w" method="post" runat="server">
                     <span class="login100-form-title p-b-32">
 						Sign up
 					</span>
@@ -44,18 +44,20 @@
 						Username
 					</span>
 					<div class="wrap-input100 validate-input m-b-36" data-validate = "Username is required">
-						<input class="input100" type="text" name="username" >
+						<%--<input class="input100" type="text" name="username" >--%>
+                         <asp:TextBox ID="usernametxt" runat="server" Class="input100" ValidationGroup=""></asp:TextBox>
 						<span class="focus-input100"></span>
 					</div>
                     
 					<span class="txt1 p-b-11">
 						Password
 					</span>
-					<div class="wrap-input100 validate-input m-b-12" data-validate = "Password is required">
+					<div class="wrap-input100 validate-input m-b-12" data-validate = "Password is required" >
 						<span class="btn-show-pass">
 							<i class="fa fa-eye"></i>
 						</span>
-						<input class="input100" type="password" name="pass" >
+						<%--<input class="input100" type="password" name="pass" >--%>
+                        <asp:TextBox ID="passwordtxt" runat="server" Class="input100" ValidationGroup=""></asp:TextBox>
 						<span class="focus-input100"></span>
 					</div>
 					<span class="txt1 p-b-11">
@@ -65,37 +67,42 @@
 						<span class="btn-show-pass">
 							<i class="fa fa-eye"></i>
 						</span>
-						<input class="input100" type="password" name="pass" >
+						<%--<input class="input100" type="password" name="pass" >--%>
+                      <asp:TextBox ID="Confrim_passtxt" runat="server" Class="input100" ValidationGroup=""></asp:TextBox>
 						<span class="focus-input100"></span>
 					</div>
                     <span class="txt1 p-b-11">
 						Email
 					</span>
 					<div class="wrap-input100 validate-input m-b-36" data-validate = "Email is required">
-						<input class="input100" type="text" name="email" >
+						<%--<input class="input100" type="text" name="email" >--%>
+                         <asp:TextBox ID="Emailtxt" runat="server" Class="input100" ValidationGroup=""></asp:TextBox>
 						<span class="focus-input100"></span>
 					</div>
                     <span class="txt1 p-b-11">
 						First Name
 					</span>
 					<div class="wrap-input100 validate-input m-b-36" data-validate = "First Name is required">
-						<input class="input100" type="text" name="First Name" >
+						<%--<input class="input100" type="text" name="First Name" >--%>
+                         <asp:TextBox ID="FirstNametxt" runat="server" Class="input100" ValidationGroup=""></asp:TextBox>
 						<span class="focus-input100"></span>
 					</div>
                     <span class="txt1 p-b-11">
 						Last Name
 					</span>
 					<div class="wrap-input100 validate-input m-b-36" data-validate = "Last Name is required">
-						<input class="input100" type="text" name="Last Name" >
+						<%--<input class="input100" type="text" name="Last Name" >--%>
+                         <asp:TextBox ID="LastNametxt" runat="server" Class="input100" ValidationGroup=""></asp:TextBox>
 						<span class="focus-input100"></span>
 					</div>
 					
 
 					<div class="container-login100-form-btn">
-						<button class="login100-form-btn">
+                        <%--<button class="login100-form-btn" runat="server" onserverclick="Registertion">
 							Sign Up
-						</button>
+						</button>--%>
 
+                        <asp:Button ID="SignUp" runat="server" Text="Sign up" CssClass="login100-form-btn" OnClick="SignUp_Click" />
                         <a href="LoginPage.aspx" class="dis-block txt3 hov1 p-r-30 p-t-10 p-b-10 p-l-30">
 							Have an account ? Sign in
 							<i class="fa fa-long-arrow-right m-l-5"></i>

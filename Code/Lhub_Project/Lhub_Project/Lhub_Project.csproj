@@ -75,7 +75,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Admin.aspx" />
+    <Content Include="AdminLogin.aspx" />
+    <Content Include="AdminRequests.aspx" />
     <Content Include="ArticlesPage.aspx" />
     <Content Include="c89fe8b0-e8a1-4f19-ab56-ea8983ce5f08.ico" />
     <Content Include="CategoryHome.aspx" />
@@ -197,12 +198,19 @@
     <Content Include="WelcomePage.aspx" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Admin.aspx.cs">
-      <DependentUpon>Admin.aspx</DependentUpon>
+    <Compile Include="AdminLogin.aspx.cs">
+      <DependentUpon>AdminLogin.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Admin.aspx.designer.cs">
-      <DependentUpon>Admin.aspx</DependentUpon>
+    <Compile Include="AdminLogin.aspx.designer.cs">
+      <DependentUpon>AdminLogin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AdminRequests.aspx.cs">
+      <DependentUpon>AdminRequests.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminRequests.aspx.designer.cs">
+      <DependentUpon>AdminRequests.aspx</DependentUpon>
     </Compile>
     <Compile Include="ArticlesPage.aspx.cs">
       <DependentUpon>ArticlesPage.aspx</DependentUpon>

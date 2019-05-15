@@ -14,21 +14,21 @@ namespace Lhub_Project
         {
             
         }
-       
+
 
         protected void loginBtn_Click(object sender, EventArgs e)
         {
-            Response.Redirect("HomePage.aspx");
-            //DataAccessLayer dataAccessLayer = new DataAccessLayer();
-            //int flag = dataAccessLayer.login(usernameTxt.Text.ToString(), passwordTxt.Text.ToString());
-            //if (flag == 1)
-            //{
-            //    Response.Redirect("HomePage.aspx");
-            //}
-            //else
-            //{
-            //    //display alert"username or password incorrect"
-            //}
+
+            DataAccessLayer dataAccessLayer = new DataAccessLayer();
+            int flag = dataAccessLayer.login(usernameTxt.Text.ToString(), passwordTxt.Text.ToString());
+            if (flag == 1)
+            {
+                Response.Redirect("HomePage.aspx");
+            }
+            else
+            {
+                //display alert"username or password incorrect"
+            }
         }
 
         protected void forgetPassBtn_Click(object sender, EventArgs e)

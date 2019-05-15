@@ -7,9 +7,74 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Lhub_Project {
-    
-    
-    public partial class SignUpPage {
+namespace Lhub_Project
+{
+
+
+    public partial class SignUpPage
+    {
+
+        /// <summary>
+        /// usernametxt control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox usernametxt;
+
+        /// <summary>
+        /// passwordtxt control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox passwordtxt;
+
+        /// <summary>
+        /// Confrim_passtxt control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox Confrim_passtxt;
+
+        /// <summary>
+        /// Emailtxt control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox Emailtxt;
+
+        /// <summary>
+        /// FirstNametxt control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox FirstNametxt;
+
+        /// <summary>
+        /// LastNametxt control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox LastNametxt;
+
+        /// <summary>
+        /// SignUp control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button SignUp;
     }
 }
