@@ -79,7 +79,6 @@
     <Content Include="AdminRequests.aspx" />
     <Content Include="ArticlesPage.aspx" />
     <Content Include="c89fe8b0-e8a1-4f19-ab56-ea8983ce5f08.ico" />
-    <Content Include="CategoryHome.aspx" />
     <Content Include="CategoryPage.aspx" />
     <Content Include="css\animate.css" />
     <Content Include="css\bootstrap.css" />
@@ -218,13 +217,6 @@
     </Compile>
     <Compile Include="ArticlesPage.aspx.designer.cs">
       <DependentUpon>ArticlesPage.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="CategoryHome.aspx.cs">
-      <DependentUpon>CategoryHome.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="CategoryHome.aspx.designer.cs">
-      <DependentUpon>CategoryHome.aspx</DependentUpon>
     </Compile>
     <Compile Include="CategoryPage.aspx.cs">
       <DependentUpon>CategoryPage.aspx</DependentUpon>

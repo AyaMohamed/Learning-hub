@@ -57,7 +57,7 @@
 							<i class="fa fa-eye"></i>
 						</span>
 						<%--<input class="input100" type="password" name="pass" >--%>
-                        <asp:TextBox ID="passwordtxt" runat="server" Class="input100" ValidationGroup=""></asp:TextBox>
+                        <asp:TextBox ID="passwordtxt" runat="server" Class="input100" ValidationGroup="" MaxLength="8"></asp:TextBox>
 						<span class="focus-input100"></span>
 					</div>
 					<span class="txt1 p-b-11">

@@ -13,6 +13,15 @@ namespace Lhub_Project {
     public partial class CategoryOage {
         
         /// <summary>
+        /// tmplabel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label tmplabel;
+        
+        /// <summary>
         /// searchTxt control.
         /// </summary>
         /// <remarks>
@@ -22,22 +31,22 @@ namespace Lhub_Project {
         protected global::System.Web.UI.WebControls.TextBox searchTxt;
         
         /// <summary>
-        /// categoryNameID control.
+        /// categoryNamelbl control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label categoryNameID;
+        protected global::System.Web.UI.WebControls.Label categoryNamelbl;
         
         /// <summary>
-        /// Button1 control.
+        /// followBtn control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button1;
+        protected global::System.Web.UI.WebControls.Button followBtn;
         
         /// <summary>
         /// articleGrid control.

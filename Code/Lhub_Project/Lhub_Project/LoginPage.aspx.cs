@@ -19,6 +19,7 @@ namespace Lhub_Project
         protected void loginBtn_Click(object sender, EventArgs e)
         {
 
+            //Response.Redirect("HomePage.aspx");
             DataAccessLayer dataAccessLayer = new DataAccessLayer();
             int flag = dataAccessLayer.login(usernameTxt.Text.ToString(), passwordTxt.Text.ToString());
             if (flag == 1)

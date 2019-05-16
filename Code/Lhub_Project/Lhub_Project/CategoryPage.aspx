@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="CategoryPage.aspx.cs" Inherits="Lhub_Project.CategoryOage" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="CategoryPage.aspx.cs" ValidateRequest="false" Inherits="Lhub_Project.CategoryOage" %>
 
 <!DOCTYPE HTML>
 <html>
@@ -78,7 +78,7 @@
 					</div>
 				</div>
 			</div>--%>
-                       
+                       <asp:Label ID="tmplabel" runat="server" Visible="false" Text="test"></asp:Label>
             <div class="top-menu" style="height: 30px; vertical-align: middle;">
                 <div class="container">
                     <div class="row" style="margin-top: -15px;">
@@ -90,10 +90,10 @@
                             <ul style="vertical-align: middle; padding: 12px">
                                 <li class="active"><a href="HomePage.aspx">Home</a></li>
                                 <li class="has-dropdown">
-                                    <a href="#">Software</a>
-                                    <a href="#">Networks</a>
-                                    <a href="#">Biotechnology</a>
-                                    <a href="#">Embedded Systems</a>
+                                    <a href="CategoryPage.aspx?catName=network" >Networks</a>
+                                    <a href="CategoryPage.aspx?catName=software">Software</a>
+                                    <a href="CategoryPage.aspx?catName=Biotechnology">Biotechnology</a>
+                                    <a href="CategoryPage.aspx?catName=Embedded Systems">Embedded Systems</a>
                                 </li>
 
                             </ul>
@@ -112,8 +112,7 @@
                             <div style="width: 50px; display: inline">
                                 
                                 
-                                
-                                    <asp:TextBox ID="searchTxt" CssClass="form-control" runat="server" placeholder="search" Wrap="true" BorderStyle="Groove" Width="150px" Height="50%">
+                                    <asp:TextBox ID="searchTxt"  CssClass="form-control" runat="server" placeholder="search" Wrap="true" BorderStyle="Groove" Width="150px" Height="50%">
                                     </asp:TextBox>
                                 
 
@@ -132,8 +131,8 @@
         <br />
         <div class="col-md-8">
                 <span class="txt1 p-b-11">
-                    <asp:Label ID="categoryNameID"  runat="server" Text="CategoryName" Width="30%"></asp:Label>
-                    <asp:Button ID="Button1" runat="server" Text="Follow" />
+                    <asp:Label ID="categoryNamelbl" style="text-align:center" runat="server" Text="CategoryName" Width="30%"></asp:Label>
+                    <asp:Button ID="followBtn" runat="server" Text="Follow" OnClick="followBtn_Click"/>
                 </span>
                 <asp:GridView ID="articleGrid" runat="server" BorderColor="Red"></asp:GridView>
 
