@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-
+using System.Data;
 namespace Lhub_Project
 {
     public partial class AdminRequests : System.Web.UI.Page
@@ -13,11 +13,18 @@ namespace Lhub_Project
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if(newGrid.Rows.Count==0)
+            DataAccessLayer dataAccessLayer = new DataAccessLayer();
+            DataTable dt = dataAccessLayer.getRequests();
+            if(dt.Rows.Count<=0)
             {
-                string script = "alert(\"There's no pending articles\");";
+                string script = "alert(\"There's no pending articles' requests\");";
                 ScriptManager.RegisterStartupScript(this, GetType(), "ServerControlScript", script, true);
 
+            }
+            else if(dt.Rows.Count>=1)
+            {
+                newGrid.DataSource = dt;
+                newGrid.DataBind();
             }
         }
 
@@ -49,8 +56,8 @@ namespace Lhub_Project
             
             string title = row.Cells[0].Text.ToString();
             string author = row.Cells[1].Text.ToString();
-            DataAccessLayer dataAccessLayer = new DataAccessLayer();
-            int result = dataAccessLayer.reviewArticle(option, author, title);
+            AdminClass admin = new AdminClass();
+            int result = admin.reviewArticle(option, author, title);
             if(result==1)
             {
                 string script = "alert(\"Article approved :)\");";

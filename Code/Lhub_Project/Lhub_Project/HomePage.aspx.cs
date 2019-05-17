@@ -12,7 +12,14 @@ namespace Lhub_Project
         DataAccessLayer dataAccessLayer = new DataAccessLayer();
         protected void Page_Load(object sender, EventArgs e)
         {
+            nameLbl.Text = Request.QueryString["userName"];
             DataTable dt = dataAccessLayer.getArticles();
+            if(txtsrch.Text!="")
+            {
+                string queryStringSrch = "srch=" + txtsrch.Text.ToString();
+                string queryStringName = "name=" + nameLbl.Text.ToString();
+                Response.Redirect("SearchResultsPage.aspx?" + queryStringSrch+"&"+queryStringName);
+            }
             if (dt.Rows.Count == 0)
             {
                 Response.Write("<script>alert('No articles found !')</script>");
@@ -89,5 +96,6 @@ namespace Lhub_Project
 
             }
         }
+        
     }
 }

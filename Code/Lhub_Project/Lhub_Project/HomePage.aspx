@@ -64,57 +64,39 @@
 <body>
 
     <div class="colorlib-loader"></div>
-
+    <form style="display: inline" runat="server" method="post">
     <div id="page">
         <nav class="colorlib-nav" role="navigation">
-            <%--	<div class="upper-menu">
-				<div class="container">
-					<div class="row">
-						<div class="col-xs-4">
-							<p>Welcome to Learning-Hub</p>
-						</div>
-						
-					</div>
-				</div>
-			</div>--%>
+         
             <div class="top-menu" style="height: 30px; vertical-align: middle;">
                 <div class="container">
                     <div class="row" style="margin-top: -15px;">
-                        <div class="col-md-1">
-                            <div id="colorlib-logo" style="width: 20%"><a href="HomePage.aspx">
-                                <img src="images/logo.png" style="height:500%; width:500%;" /></a></div>
-                        </div>
-                        <div class="col-md-6 text-left menu-1">
-                            <ul style="vertical-align: middle; padding: 12px">
-                                <li class="active"><a href="HomePage.aspx">Home</a></li>
-                                <li class="has-dropdown">
-                                    <a href="CategoryPage.aspx?catName=network" >Networks</a>
-                                    <a href="CategoryPage.aspx?catName=software">Software</a>
-                                    <a href="CategoryPage.aspx?catName=Biotechnology">Biotechnology</a>
-                                    <a href="CategoryPage.aspx?catName=Embedded systems">Embedded Systems</a>
-                                </li>
+                   
+                        <div class="col-md-12 text-left menu-2">
+                            <ul>
+                                <li class="active"><a href="HomePage.aspx">
+                                    <img src="images/logo.png" style="height: 10%; width: 10%"></a></li>
+
+
+                                <li><a href="HomePage.aspx">Home</a></li>
+                                <li><a href="CategoryPage.aspx?catName=network&userName=<%=nameLbl.Text.ToString()%>">Networks</a></li>
+                                <li><a href="CategoryPage.aspx?catName=Embedded systems&userName=<%=nameLbl.Text.ToString()%>">Embedded Systems</a></li>
+                                <li><a href="CategoryPage.aspx?catName=software&userName=<%=nameLbl.Text.ToString()%>">Software</a></li>
+                                <li><a href="CategoryPage.aspx?catName=Biotechnology&userName=<%=nameLbl.Text.ToString()%>">Biotechnology</a></li>
+                                <li><a href="#">
+                                    <img src="images/notification.png" /></a></li>
+                                <li><a href="#">
+                                    <img src="images/add.png" /></a></li>
+                                <li>
+                                    <asp:TextBox ID="txtsrch" CssClass="srchLbl" Style="width: 100px; margin-left: 1%;" placeHolder="search" runat="server" TextMode="Search"></asp:TextBox></li>
+                                <li><a href="#">
+                                    <img src="images/user.png" /></a></li>
+                                <li>
+                                    <asp:Label ID="nameLbl" CssClass="srchLbl" runat="server" Text="Label"></asp:Label></li>
 
                             </ul>
                         </div>
-                        <div class="col-md-1" style="width: 100px; padding: 15px">
-                            <div style="width: 50px; display: inline">
-                                <img src="images/notification.png" />
 
-                            </div>
-                            &nbsp; &nbsp;
-                            <div style="width: 50px; display: inline;">
-                                <img src="images/add.png" /></div>
-                            &nbsp;
-                        </div>
-                        <div class="col-md-2" style="padding: 15px">
-                            <div style="width: 50px; display: inline">
-                                <form style="display: inline" runat="server" method="post">
-                                    <asp:TextBox ID="searchTxt" CssClass="form-control" placeholder="search" runat="server" Wrap="true" BorderStyle="Groove" Width="150px" Height="50%">
-                                    </asp:TextBox>
-                                </form>
-                            </div>
-
-                        </div>
 
                     </div>
                 </div>
@@ -143,7 +125,7 @@
                             <div class="panel-body">
                                 <div class="row">
                                     <div class="col-md-6">
-                                        <asp:Label ID="article1ID" Style="word-wrap:normal;" runat="server" Text="Label"></asp:Label>
+                                        <asp:Label ID="article1ID" Style="word-wrap: normal;" runat="server" Text="Label"></asp:Label>
                                     </div>
                                 </div>
                             </div>
@@ -179,7 +161,7 @@
                             </div>
                         </div>
                     </div>
-                <br />
+                    <br />
                     <div class="panel panel-default" id="panel4" runat="server">
                         <div class="panel-heading" role="tab" id="headingFour">
                             <h4 class="panel-title">
@@ -218,6 +200,7 @@
 		<a href="#" class="js-gotop"><i class="icon-arrow-up2"></i></a>
 	</div>--%>
     </div>
+        </form>
     <!-- jQuery -->
     <script src="js/jquery.min.js"></script>
     <!-- jQuery Easing -->

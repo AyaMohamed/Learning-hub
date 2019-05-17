@@ -36,21 +36,27 @@
         <div class="container-login100">
             <div class="wrap-login100 p-l-85 p-r-85 p-t-55 p-b-55">
                 <form class="login100-form validate-form flex-sb flex-w" method="post" runat="server">
-                    <span class="login100-form-title p-b-32">Sign up
-					</span>
+                    <span class="login100-form-title p-b-32"><img src="images/logo.png" style="height: 10%; width: 10%">Sign up
+                    </span>
                     <br />
                     <br />
                     <br />
                     <span class="txt1 p-b-11">Username
-					</span>
+                    </span>
                     <div class="wrap-input100 validate-input m-b-36" data-validate="Username is required">
                         <%--<input class="input100" type="text" name="username" >--%>
                         <asp:TextBox ID="usernametxt" runat="server" Class="input100" ValidationGroup=""></asp:TextBox>
+                        <asp:RegularExpressionValidator ID="RegularExpressionValidator4" runat="server" Style="top: -8px; left: 427px; position: absolute; height: 30px; width: 200px"
+                            ErrorMessage="username must be characters with at least one numeric,</br>one upper case character and one special character" ControlToValidate="usernametxt"
+                            ValidationExpression="(?!^[0-9]*$)(?!^[a-zA-Z]*$)^([a-zA-Z0-9])$" Display="Dynamic" ForeColor="Red"></asp:RegularExpressionValidator>
+
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="usernametxt" Display="Dynamic" ForeColor="Red" ErrorMessage="Username is required"></asp:RequiredFieldValidator>
+
                         <span class="focus-input100"></span>
                     </div>
 
                     <span class="txt1 p-b-11">Password
-					</span>
+                    </span>
 
                     <!--//==========================password field=====================//-->
                     <div class="wrap-input100 validate-input m-b-12" data-validate="Password is required">
@@ -73,7 +79,7 @@
 
                     <!--//==========================Confirm password field=====================//-->
                     <span class="txt1 p-b-11">Confirm Password
-					</span>
+                    </span>
                     <div class="wrap-input100 validate-input m-b-12" data-validate="Password is required">
                         <span class="btn-show-pass">
                             <i class="fa fa-eye"></i>
@@ -97,7 +103,7 @@
                     <!--//==========================email field=====================//-->
 
                     <span class="txt1 p-b-11">Email
-					</span>
+                    </span>
                     <div class="wrap-input100 validate-input m-b-36" data-validate="Email is required">
                         <%--<input class="input100" type="text" name="email" >--%>
                         <asp:TextBox ID="Emailtxt" runat="server" TextMode="Email" Class="input100" ValidationGroup=""></asp:TextBox>
@@ -114,7 +120,7 @@
                     <!--//==========================1st name field  =====================//-->
 
                     <span class="txt1 p-b-11">First Name
-					</span>
+                    </span>
                     <div class="wrap-input100 validate-input m-b-36" data-validate="First Name is required">
                         <%--<input class="input100" type="text" name="First Name" >--%>
                         <asp:TextBox ID="FirstNametxt" runat="server" Class="input100" ValidationGroup=""></asp:TextBox>
@@ -129,7 +135,7 @@
 
                     <!--//==========================last name field  =====================//-->
                     <span class="txt1 p-b-11">Last Name
-					</span>
+                    </span>
                     <div class="wrap-input100 validate-input m-b-36" data-validate="Last Name is required">
                         <%--<input class="input100" type="text" name="Last Name" >--%>
                         <asp:TextBox ID="LastNametxt" runat="server" Class="input100" ValidationGroup=""></asp:TextBox>

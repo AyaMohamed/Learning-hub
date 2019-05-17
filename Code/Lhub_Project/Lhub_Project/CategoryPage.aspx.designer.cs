@@ -10,25 +10,25 @@
 namespace Lhub_Project {
     
     
-    public partial class CategoryOage {
+    public partial class CategoryPage {
         
         /// <summary>
-        /// tmplabel control.
+        /// txtsrch control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label tmplabel;
+        protected global::System.Web.UI.WebControls.TextBox txtsrch;
         
         /// <summary>
-        /// searchTxt control.
+        /// nameLbl control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox searchTxt;
+        protected global::System.Web.UI.WebControls.Label nameLbl;
         
         /// <summary>
         /// categoryNamelbl control.

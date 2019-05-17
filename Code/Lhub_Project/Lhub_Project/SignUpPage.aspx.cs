@@ -22,7 +22,7 @@ namespace Lhub_Project
             int count = dl.register(usernametxt.Text.ToString(), passwordtxt.Text.ToString(), FirstNametxt.Text.ToString(), LastNametxt.Text.ToString(), Emailtxt.Text.ToString());
             if(count==1)
             {
-                Response.Redirect("HomePage.aspx");
+                Response.Redirect("HomePage.aspx?name="+usernametxt.Text.ToString());
             }
             else
             {

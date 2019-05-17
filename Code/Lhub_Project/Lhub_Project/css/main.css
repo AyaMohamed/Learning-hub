@@ -179,15 +179,17 @@ iframe {
 }
 
 .container-login100 {
-  width: 100%;  
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -moz-box;
-  display: -ms-flexbox;
-  display: flex;
-  flex-wrap: wrap;
-  align-items: stretch;
-  flex-wrap: wrap;
+    width: 100%;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+    flex-wrap: wrap;
+    background-size: cover;
+    background-image: url("/images/img_bg_1.jpg");
 }
 
 
@@ -657,12 +659,11 @@ iframe {
     }
 
 .srchLbl {
-    background: #FFFFFF url(images/search.png) no-repeat 10px 4px;
-    padding: 15px;
     border: 1px solid #CCCCCC;
-    width: 180px;
-    height: 10px;
-    border-radius:50px;
+    border-radius: 50px;
+    position: relative;
+    width: 100px;
+    margin-left: 1%;
 }
 .srchLbl:focus
 {
