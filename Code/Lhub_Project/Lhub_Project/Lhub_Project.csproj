@@ -78,7 +78,7 @@
     <Content Include="AdminLogin.aspx" />
     <Content Include="AdminRequests.aspx" />
     <Content Include="ArticlesPage.aspx" />
-    <Content Include="c89fe8b0-e8a1-4f19-ab56-ea8983ce5f08.ico" />
+    <Content Include="images\icons\logo.ico" />
     <Content Include="CategoryPage.aspx" />
     <Content Include="css\animate.css" />
     <Content Include="css\bootstrap.css" />
@@ -143,6 +143,7 @@
     <Content Include="images\person2.jpg" />
     <Content Include="images\person3.jpg" />
     <Content Include="images\person4.jpg" />
+    <Content Include="images\search.png" />
     <Content Include="js\bootstrap.min.js" />
     <Content Include="js\google_map.js" />
     <Content Include="js\jquery.countTo.js" />
@@ -444,7 +445,7 @@
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>c89fe8b0-e8a1-4f19-ab56-ea8983ce5f08.ico</ApplicationIcon>
+    <ApplicationIcon>images\icons\logo.ico</ApplicationIcon>
   </PropertyGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />

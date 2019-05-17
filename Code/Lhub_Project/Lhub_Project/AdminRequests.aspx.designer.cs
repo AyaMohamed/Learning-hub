@@ -13,6 +13,15 @@ namespace Lhub_Project {
     public partial class AdminRequests {
         
         /// <summary>
+        /// tmplabel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label tmplabel;
+        
+        /// <summary>
         /// searchTxt control.
         /// </summary>
         /// <remarks>
@@ -22,30 +31,39 @@ namespace Lhub_Project {
         protected global::System.Web.UI.WebControls.TextBox searchTxt;
         
         /// <summary>
-        /// categoryNameID control.
+        /// lbl1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label categoryNameID;
+        protected global::System.Web.UI.WebControls.Label lbl1;
         
         /// <summary>
-        /// Button1 control.
+        /// addCategoryBtn control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button1;
+        protected global::System.Web.UI.WebControls.Button addCategoryBtn;
         
         /// <summary>
-        /// articleGrid control.
+        /// newGrid control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView articleGrid;
+        protected global::System.Web.UI.WebControls.GridView newGrid;
+        
+        /// <summary>
+        /// SqlDataSource1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource1;
     }
 }

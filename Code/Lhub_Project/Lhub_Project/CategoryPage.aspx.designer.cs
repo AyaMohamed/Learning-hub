@@ -49,12 +49,12 @@ namespace Lhub_Project {
         protected global::System.Web.UI.WebControls.Button followBtn;
         
         /// <summary>
-        /// articleGrid control.
+        /// newGrid control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView articleGrid;
+        protected global::System.Web.UI.WebControls.GridView newGrid;
     }
 }

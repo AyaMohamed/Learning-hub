@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-
+using System.Data;
 namespace Lhub_Project
 {
     public partial class CategoryOage : System.Web.UI.Page
@@ -16,8 +16,10 @@ namespace Lhub_Project
             category = Request.QueryString["catName"];
             categoryNamelbl.Text = category;
             dataAccessLayer = new DataAccessLayer();
-            articleGrid.DataSource = dataAccessLayer.getArticlesFromCategory(category);
-            articleGrid.DataBind();
+            DataTable dt = dataAccessLayer.getArticlesFromCategory(category); 
+            newGrid.DataSource = dataAccessLayer.getArticlesFromCategory(category);
+            newGrid.DataBind();
+           
         }
 
 

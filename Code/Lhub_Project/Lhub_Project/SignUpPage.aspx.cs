@@ -19,7 +19,16 @@ namespace Lhub_Project
         protected void SignUp_Click(object sender, EventArgs e)
         {
             DataAccessLayer dl = new DataAccessLayer();
-            dl.Registertion(usernametxt.Text.ToString(), FirstNametxt.Text.ToString(), LastNametxt.Text.ToString(), Emailtxt.Text.ToString(), passwordtxt.Text.ToString(), Confrim_passtxt.Text.ToString());
+            int count = dl.register(usernametxt.Text.ToString(), passwordtxt.Text.ToString(), FirstNametxt.Text.ToString(), LastNametxt.Text.ToString(), Emailtxt.Text.ToString());
+            if(count==1)
+            {
+                Response.Redirect("HomePage.aspx");
+            }
+            else
+            {
+                string script = "alert(\"Sign up failed , please try again\");";
+                ScriptManager.RegisterStartupScript(this, GetType(), "ServerControlScript", script, true);
+            }
         }
     }
 }

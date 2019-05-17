@@ -28,6 +28,8 @@ namespace Lhub_Project
             }
             else
             {
+                string script = "alert(\"Username or password is incorrect\");";
+                ScriptManager.RegisterStartupScript(this, GetType(), "ServerControlScript", script, true);
                 //display alert"username or password incorrect"
             }
         }
