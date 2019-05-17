@@ -13,6 +13,15 @@ namespace Lhub_Project {
     public partial class AdminRequests {
         
         /// <summary>
+        /// tmplabel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label tmplabel;
+        
+        /// <summary>
         /// searchTxt control.
         /// </summary>
         /// <remarks>
@@ -20,6 +29,15 @@ namespace Lhub_Project {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox searchTxt;
+        
+        /// <summary>
+        /// lbl1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbl1;
         
         /// <summary>
         /// addCategoryBtn control.
@@ -38,5 +56,14 @@ namespace Lhub_Project {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView newGrid;
+        
+        /// <summary>
+        /// SqlDataSource1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource1;
     }
 }

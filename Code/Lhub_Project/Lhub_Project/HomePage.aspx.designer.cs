@@ -13,22 +13,13 @@ namespace Lhub_Project {
     public partial class HomePage {
         
         /// <summary>
-        /// txtsrch control.
+        /// searchTxt control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtsrch;
-        
-        /// <summary>
-        /// nameLbl control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label nameLbl;
+        protected global::System.Web.UI.WebControls.TextBox searchTxt;
         
         /// <summary>
         /// Label2 control.

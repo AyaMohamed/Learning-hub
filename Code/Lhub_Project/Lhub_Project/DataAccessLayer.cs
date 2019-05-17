@@ -109,17 +109,17 @@ namespace Lhub_Project
 
 
         }
-        public DataTable searchArticle(string keyword)
-        {
-            string query = "select text from article_lhub where article_text like(%" + keyword + "%) or article_title like (%" + keyword + "%)";
-            SqlCommand sqlCommand = new SqlCommand(query, con);
-            SqlDataReader sqlDataReader = sqlCommand.ExecuteReader();
-            DataTable dataTable = new DataTable();
-            dataTable.Load(sqlDataReader);
-            con.Close();
-            sqlDataReader.Close();
-            return dataTable;
-        }
+        /* public DataTable searchArticle(string keyword)
+         {
+             string query = "select text from article where text like(%" + keyword + "%)";
+             SqlCommand sqlCommand = new SqlCommand(query, con);
+             SqlDataReader sqlDataReader = sqlCommand.ExecuteReader();
+             DataTable dataTable = new DataTable();
+             dataTable.Load(sqlDataReader);
+             con.Close();
+             sqlDataReader.Close();
+             return dataTable;
+         }*/
         public DataTable getArticles()
         {
             string query = "select top 5 article_title,article_text from article_lhub where article_text is not null order by article_date desc";
@@ -133,9 +133,6 @@ namespace Lhub_Project
             return dataTable;
 
         }
-        /*
-         * to get user id from his user name , to use in follow category function
-         */
         public string getUserID(string uName)
         {
             string query = "select user_id from user_lhub where user_name=@uName ";
@@ -146,7 +143,7 @@ namespace Lhub_Project
             SqlDataReader dr = sqlCommand.ExecuteReader();
             while(dr.Read())
             {
-                id = dr["user_id"].ToString();
+                id = dr["user_name"].ToString();
             }
             con.Close();
             return id;
@@ -168,8 +165,8 @@ namespace Lhub_Project
             dr.Close();
             return id;
         }
-        //follow category
-        public void followCategory(string userName,string categoryName)
+
+        public void addUserCategory(string userName,string categoryName)
         {
             string userID = getUserID(userName);
             string categoryID = getCategoryID(categoryName);
@@ -181,20 +178,6 @@ namespace Lhub_Project
             sqlCommand.ExecuteNonQuery();
             con.Close();
             
-        }
-        //unfollow category
-        public void unfollowCategory(string userName, string categoryName)
-        {
-            string userID = getUserID(userName);
-            string categoryID = getCategoryID(categoryName);
-            string query = @"delete from User_Follow_Category_lhub where category_id=@catid and user_id =@userid";
-            con.Open();
-            SqlCommand sqlCommand = new SqlCommand(query, con);
-            sqlCommand.Parameters.Add("@catid", SqlDbType.NVarChar).Value = categoryID;
-            sqlCommand.Parameters.Add("@userid", SqlDbType.NVarChar).Value = userID;
-            sqlCommand.ExecuteNonQuery();
-            con.Close();
-
         }
         public DataTable getArticlesFromCategory(string categoryName)
         {
@@ -234,19 +217,6 @@ namespace Lhub_Project
             int count = (int)sqlCommand.ExecuteScalar();
             con.Close();
             return count;
-        }
-        public DataTable getRequests()
-        {
-
-            string query = "SELECT [article_title] as Title, [user_name] as [Author Name], [article_date] as [Published Date],[article_id] FROM [article_Temp] ORDER BY [article_date] DESC";
-            con.Open();
-            SqlCommand sqlCommand = new SqlCommand(query, con);
-            SqlDataReader sqlDataReader = sqlCommand.ExecuteReader();
-            DataTable dataTable = new DataTable();
-            dataTable.Load(sqlDataReader);
-            con.Close();
-            sqlDataReader.Close();
-            return dataTable;
         }
         /*
          * 1. user upload article

@@ -12,20 +12,19 @@ namespace Lhub_Project
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            
         }
 
 
         protected void loginBtn_Click(object sender, EventArgs e)
         {
-            UserClass user = new UserClass();
-            string username = usernameTxt.Text.ToString();
-            string password = passwordTxt.Text.ToString();
-            int flag = user.login_user(username, password);
+
+            //Response.Redirect("HomePage.aspx");
+            DataAccessLayer dataAccessLayer = new DataAccessLayer();
+            int flag = dataAccessLayer.login(usernameTxt.Text.ToString(), passwordTxt.Text.ToString());
             if (flag == 1)
             {
-                string queryString = "userName=" + username;
-                Response.Redirect("HomePage.aspx?" + queryString);
+                Response.Redirect("HomePage.aspx");
             }
             else
             {
