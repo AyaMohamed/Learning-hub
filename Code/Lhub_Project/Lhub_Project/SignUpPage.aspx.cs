@@ -18,11 +18,18 @@ namespace Lhub_Project
 
         protected void SignUp_Click(object sender, EventArgs e)
         {
+            
+        }
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
             DataAccessLayer dl = new DataAccessLayer();
-            int count = dl.register(usernametxt.Text.ToString(), passwordtxt.Text.ToString(), FirstNametxt.Text.ToString(), LastNametxt.Text.ToString(), Emailtxt.Text.ToString());
-            if(count==1)
+            UserClass user = new UserClass();
+
+            int count = user.signup_user(usernametxt.Text.ToString(), passwordtxt.Text.ToString(), FirstNametxt.Text.ToString(), LastNametxt.Text.ToString(), Emailtxt.Text.ToString());
+            if (count == 1)
             {
-                Response.Redirect("HomePage.aspx");
+                Response.Redirect("HomePage.aspx?userName=" + usernametxt.Text.ToString());
             }
             else
             {
