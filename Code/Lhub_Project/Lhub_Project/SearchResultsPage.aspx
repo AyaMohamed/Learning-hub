@@ -70,11 +70,11 @@
 
                             <div class="col-md-12 text-left menu-2">
                                 <ul>
-                                    <li class="active"><a href="HomePage.aspx">
+                                    <li class="active"><a href="HomePage.aspx?userName=<%=nameLbl.Text.ToString()%>">
                                         <img src="images/logo.png" style="height: 10%; width: 10%"></a></li>
 
 
-                                    <li><a href="HomePage.aspx">Home</a></li>
+                                    <li><a href="HomePage.aspx?userName=<%=nameLbl.Text.ToString()%>">Home</a></li>
 
                                     <li><a href="CategoryPage.aspx?catName=network&userName=<%=nameLbl.Text.ToString()%>">Networks</a></li>
                                     <li><a href="CategoryPage.aspx?catName=Embedded systems&userName=<%=nameLbl.Text.ToString()%>">Embedded Systems</a></li>
@@ -97,8 +97,7 @@
 
                         </div>
                         <div class="row">
-                            <br />
-                            <br />
+                           
                             <asp:GridView ID="GridView2" CssClass="mydatagrid" PagerStyle-CssClass="pager"
                                 HeaderStyle-CssClass="header" RowStyle-CssClass="rows" AllowPaging="True" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource1">
                                 <Columns>

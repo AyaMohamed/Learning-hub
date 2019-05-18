@@ -78,7 +78,7 @@
                             
                          <div class="col-md-12 text-left menu-2">
                             <ul>
-                                <li class="active"><a href="HomePage.aspx">
+                                <li class="active"><a href="HomePage.aspx?userName=<%=nameLbl.Text.ToString()%>">
                                     <img src="images/logo.png" style="height: 10%; width: 10%"></a></li>
 
 
@@ -107,17 +107,13 @@
                     </div>
                 </div>
             </nav>
-            <br />
-            <br />
-            <br />
-            <br />
+            
             <div class="col-md-8">
                 <span class="txt1 p-b-11">
                     <asp:Label ID="categoryNamelbl" Style="text-align: center" runat="server" Text="CategoryName" Width="30%"></asp:Label>
                     <asp:Button ID="followBtn" runat="server" CssClass="myButton" Text="Follow" OnClick="followBtn_Click" />
                 </span>
-                <br />
-                <br />
+              
                 <asp:GridView ID="newGrid" runat="server" CssClass="mydatagrid" PagerStyle-CssClass="pager"
                     HeaderStyle-CssClass="header" RowStyle-CssClass="rows" AllowPaging="True" >
                 </asp:GridView>

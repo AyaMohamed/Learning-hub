@@ -74,11 +74,11 @@
                    
                         <div class="col-md-12 text-left menu-2">
                             <ul>
-                                <li class="active"><a href="HomePage.aspx">
+                                <li class="active"><a href="HomePage.aspx?userName=<%=nameLbl.Text.ToString()%>">
                                     <img src="images/logo.png" style="height: 10%; width: 10%"></a></li>
 
 
-                                <li><a href="HomePage.aspx">Home</a></li>
+                                <li><a href="HomePage.aspxuserName=<%=nameLbl.Text.ToString()%>">Home</a></li>
                                 <li><a href="CategoryPage.aspx?catName=network&userName=<%=nameLbl.Text.ToString()%>">Networks</a></li>
                                 <li><a href="CategoryPage.aspx?catName=Embedded systems&userName=<%=nameLbl.Text.ToString()%>">Embedded Systems</a></li>
                                 <li><a href="CategoryPage.aspx?catName=software&userName=<%=nameLbl.Text.ToString()%>">Software</a></li>
@@ -108,9 +108,7 @@
         <br />
         <div class="col-md-8">
             <asp:Label ID="Label2" runat="server" Text="Recently uploaded articles" Font-Size="X-Large" Font-Underline="True"></asp:Label>
-            <br />
-            <br />
-
+           
             <div class="fancy-collapse-panel">
                 <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
                     <div class="panel panel-default" id="panel1" runat="server">

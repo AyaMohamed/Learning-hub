@@ -18,11 +18,6 @@ namespace Lhub_Project
 
         protected void SignUp_Click(object sender, EventArgs e)
         {
-            
-        }
-
-        protected void Button1_Click(object sender, EventArgs e)
-        {
             DataAccessLayer dl = new DataAccessLayer();
             UserClass user = new UserClass();
 
@@ -36,6 +31,11 @@ namespace Lhub_Project
                 string script = "alert(\"Sign up failed , please try again\");";
                 ScriptManager.RegisterStartupScript(this, GetType(), "ServerControlScript", script, true);
             }
+        }
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }

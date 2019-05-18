@@ -71,73 +71,69 @@
 
         <div id="page">
             <nav class="colorlib-nav" role="navigation">
-            
+
                 <div class="top-menu" style="height: 30px; vertical-align: middle;">
                     <div class="container">
-                        <div class="row" style="margin-top: -15px;">
-                            <div class="col-md-1">
-                                <div id="colorlib-logo" style="width: 20%">
-                                    <a href="HomePage.aspx">
-                                        <img src="images/logo.png" style="height: 60px; width: 60px;" /></a>
-                                </div>
-                            </div>
-                            <div class="col-md-12 text-left menu-1">
-                                <ul style="vertical-align: middle; padding: 12px">
-                                    <li class="active"><a href="HomePage.aspx">Home</a></li>
-                                    <li class="has-dropdown">
-                                        <a href="CategoryPage.aspx?catName=network">Networks</a>
-                                        <a href="CategoryPage.aspx?catName=software">Software</a>
-                                        <a href="CategoryPage.aspx?catName=Biotechnology">Biotechnology</a>
-                                        <a href="CategoryPage.aspx?catName=Embedded Systems">Embedded Systems</a>
-                                    </li>
+                        <div class="col-md-12 text-left menu-2">
+                            <ul>
+                                <li class="active"><a href="HomePage.aspx?userName=<%=nameLbl.Text.ToString()%>">
+                                    <img src="images/logo.png" style="height: 10%; width: 10%"></a></li>
 
-                                </ul>
-                            </div>
-                            <div class="col-md-1" style="padding: 15px">
-                                <div style="display: inline">
-                                    <img src="images/notification.png" style="float: left" />
-                                    &nbsp; &nbsp; 
-                                    <img src="images/add.png" />
 
-                                </div>
+                                <li><a href="HomePage.aspx?userName=<%=nameLbl.Text.ToString()%>">Home</a></li>
 
-                            </div>
-                            <div class="col-md-2" style="padding: 15px">
-                                <div style="width: 50%; display: inline-block">
+                                <li><a href="CategoryPage.aspx?catName=network">Networks</a></li>
+                                <li><a href="CategoryPage.aspx?catName=Embedded systems&userName=<%=nameLbl.Text.ToString()%>">Embedded Systems</a></li>
+                                <li><a href="CategoryPage.aspx?catName=software&userName=<%=nameLbl.Text.ToString()%>">Software</a></li>
+                                <li><a href="CategoryPage.aspx?catName=Biotechnology&userName=<%=nameLbl.Text.ToString()%>">Biotechnology</a></li>
+                                <li><a href="#">
+                                    <img src="images/notification.png" /></a></li>
+                                <li><a href="#">
+                                    <img src="images/add.png" /></a></li>
+                                <li>
+                                    <asp:TextBox ID="txtsrch" CssClass="srchLbl" Style="width: 100px; margin-left: 1%;" placeHolder="search" runat="server" TextMode="Search"></asp:TextBox></li>
+                                <li><a href="#">
+                                    <img src="images/user.png" /></a></li>
+                                <li>
+                                    <asp:Label ID="nameLbl" CssClass="srchLbl" runat="server" Text="Label"></asp:Label></li>
 
-                                    <span class="txt1 p-b-11" >
-                   
-                                    <asp:TextBox ID="searchTxt" CssClass="srchLbl" runat="server" Style="display:inline-block" TextMode="Search" placeholder="search" Wrap="true">
-                                    </asp:TextBox>
-
-                                    </span>
-
-                                </div>
-
-                            </div>
-
+                            </ul>
                         </div>
                     </div>
                 </div>
             </nav>
-            <br />
-            <br />
-            <br />
-            <br />
-            <div class="col-md-8">
-                <span class="txt1 p-b-12"> Pending Requests
-                    <asp:Button ID="addCategoryBtn" runat="server" Style="text-align: center;margin-left:10%;display:inline-block" CssClass="myButton" Text="Add new Category" OnClick="addCategoryBtn_Click" />
+
+            <div class="col-md-8 text-center">
+                <span class="txt1 p-b-12">Pending Requests
+                   
+                    <asp:Button ID="addCategoryBtn" runat="server" Style="text-align: center; margin-left: 10%; display: inline-block" CssClass="myButton" Text="Add new Category" OnClick="addCategoryBtn_Click" />
                 </span>
-                <br />
-                <br />
-                <asp:GridView ID="newGrid" runat="server" CssClass="mydatagrid" PagerStyle-CssClass="pager"
-                    HeaderStyle-CssClass="header" RowStyle-CssClass="rows" AllowPaging="True" AutoGenerateColumns="False" OnSelectedIndexChanged="newGrid_SelectedIndexChanged">
+
+                <asp:GridView ID="newGrid" runat="server"  CssClass="mydatagrid" PagerStyle-CssClass="pager"
+                    HeaderStyle-CssClass="header" RowStyle-CssClass="rows" AllowPaging="True" AutoGenerateColumns="False" OnSelectedIndexChanged="newGrid_SelectedIndexChanged" DataSourceID="SqlDataSource1">
+                    <Columns>
+                        <asp:BoundField DataField="article_title" HeaderText="Title" SortExpression="article_title" />
+                        <asp:BoundField DataField="article_date" HeaderText="Date uploaded" SortExpression="article_date" DataFormatString="{0:dd-MMM-yy}" />
+                        <asp:BoundField DataField="user_name" HeaderText="Uploaded by" SortExpression="user_name" />
+                        <asp:TemplateField HeaderText="Action">
+
+                            <ItemTemplate>
+                                <asp:LinkButton ID="approveBtn" runat="server" OnClick="approveBtn_Click" CausesValidation="false" CommandName="Select" CssClass="myButton" Text="Approve"></asp:LinkButton>
+                                <asp:LinkButton ID="rejectBtn" runat="server" OnClick="rejectBtn_Click" CausesValidation="false" CommandName="Select" CssClass="myButton" Text="Reject"></asp:LinkButton>
+
+                            </ItemTemplate>
+
+                            <ControlStyle CssClass="myButton" />
+
+                        </asp:TemplateField>
+                    </Columns>
                     <HeaderStyle CssClass="header"></HeaderStyle>
 
                     <PagerStyle CssClass="pager"></PagerStyle>
 
                     <RowStyle CssClass="rows"></RowStyle>
                 </asp:GridView>
+                <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:Learning_LhubConnectionString4 %>" SelectCommand="SELECT [article_title], [article_date], [user_name] FROM [article_Temp]"></asp:SqlDataSource>
             </div>
 
             <%--<div class="gototop js-top">

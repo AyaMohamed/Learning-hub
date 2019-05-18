@@ -21,6 +21,12 @@ namespace Lhub_Project
             categoryNamelbl.Text = category;
             dataAccessLayer = new DataAccessLayer();
             DataTable dt = dataAccessLayer.getArticlesFromCategory(category);
+            if (txtsrch.Text != "")
+            {
+                string queryStringSrch = "srch=" + txtsrch.Text.ToString();
+                string queryStringName = "name=" + nameLbl.Text.ToString();
+                Response.Redirect("SearchResultsPage.aspx?" + queryStringSrch + "&" + queryStringName);
+            }
             if (name == null || dt == null)
             {
 

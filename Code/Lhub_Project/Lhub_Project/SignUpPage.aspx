@@ -150,7 +150,6 @@
                         <%--<button class="login100-form-btn" runat="server" onserverclick="Registertion">
 							Sign Up
 						</button>--%>
-<asp:Button OnClick="Button1_Click" ID="Button1" runat="server" Text="Button" />
                         <asp:Button ID="SignUp" runat="server" Text="Sign up" CssClass="login100-form-btn" OnClick="SignUp_Click" />
                         <a href="LoginPage.aspx" class="dis-block txt3 hov1 p-r-30 p-t-10 p-b-10 p-l-30" style="font-size: large; color: #f1f1f1;">Have an account ? Sign in
 						

@@ -13,18 +13,11 @@ namespace Lhub_Project
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            DataAccessLayer dataAccessLayer = new DataAccessLayer();
-            DataTable dt = dataAccessLayer.getRequests();
-            if(dt.Rows.Count<=0)
+            if (txtsrch.Text != "")
             {
-                string script = "alert(\"There's no pending articles' requests\");";
-                ScriptManager.RegisterStartupScript(this, GetType(), "ServerControlScript", script, true);
-
-            }
-            else if(dt.Rows.Count>=1)
-            {
-                newGrid.DataSource = dt;
-                newGrid.DataBind();
+                string queryStringSrch = "srch=" + txtsrch.Text.ToString();
+                string queryStringName = "name=" + nameLbl.Text.ToString();
+                Response.Redirect("SearchResultsPage.aspx?" + queryStringSrch + "&" + queryStringName);
             }
         }
 
