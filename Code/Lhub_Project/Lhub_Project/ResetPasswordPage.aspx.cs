@@ -16,10 +16,10 @@ namespace Lhub_Project
 
         protected void confirmBtn_Click(object sender, EventArgs e)
         {
-            DataAccessLayer dataAccessLayer = new DataAccessLayer();
+            UserClass user = new UserClass();
             string email = emailTxt.Text.ToLower().ToString();
             string password = newpasswordTxt.Text.ToString();
-            int line = dataAccessLayer.resetPassword(email, password);
+            int line = user.resetPassword(email, password);
             if(line==0)
             {
                 Response.Redirect("ResetPassword.aspx");

@@ -61,6 +61,12 @@ namespace Lhub_Project
             dl.unfollowCategory(username, categoryName);
 
         }
+        public int resetPassword(string email,string password)
+        {
+            DataAccessLayer dl = new DataAccessLayer();
+            int result = dl.resetPassword(email, password);
+            return result;
+        }
         public DataTable searchArticle(string word)
         {
             DataAccessLayer dataAccessLayer = new DataAccessLayer();
