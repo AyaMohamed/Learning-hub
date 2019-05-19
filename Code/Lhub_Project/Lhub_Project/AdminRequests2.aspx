@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="AdminRequests.aspx.cs" Inherits="Lhub_Project.AdminRequests" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="AdminRequests2.aspx.cs" Inherits="Lhub_Project.AdminRequests2" %>
 
 <!DOCTYPE HTML>
 <html>
@@ -82,7 +82,7 @@
 
                                 <li><a href="HomePage.aspx?userName=<%=nameLbl.Text.ToString()%>">Home</a></li>
 
-                                <li><a href="CategoryPage.aspx?catName=network&userName=<%=nameLbl.Text.ToString()%>">Networks</a></li>
+                                <li><a href="CategoryPage.aspx?catName=network">Networks</a></li>
                                 <li><a href="CategoryPage.aspx?catName=Embedded systems&userName=<%=nameLbl.Text.ToString()%>">Embedded Systems</a></li>
                                 <li><a href="CategoryPage.aspx?catName=software&userName=<%=nameLbl.Text.ToString()%>">Software</a></li>
                                 <li><a href="CategoryPage.aspx?catName=Biotechnology&userName=<%=nameLbl.Text.ToString()%>">Biotechnology</a></li>
@@ -106,19 +106,21 @@
             <div class="col-md-8 text-center">
                 <span class="txt1 p-b-12">Pending Requests
                    
-                    <asp:Button ID="addCategoryBtn" runat="server" Style="text-align: center; margin-left: 10%; display: inline-block" CssClass="myButton" Text="Add new Category" OnClick="addCategoryBtn_Click" />
+                    <asp:Button ID="addCategoryBtn" runat="server" Style="text-align: center; margin-left: 10%; display: inline-block" CssClass="myButton" Text="Add new Category" />
                 </span>
 
                 <asp:GridView ID="newGrid" runat="server"  CssClass="mydatagrid" PagerStyle-CssClass="pager"
                     HeaderStyle-CssClass="header" RowStyle-CssClass="rows" AllowPaging="True" AutoGenerateColumns="False" OnSelectedIndexChanged="newGrid_SelectedIndexChanged" DataSourceID="SqlDataSource1">
                     <Columns>
-                         <asp:BoundField DataField="article_title" HeaderText="Article Title" SortExpression="article_title" />
-                        <asp:BoundField DataField="article_date" HeaderText="Date uploaded" SortExpression="article_date" />
-                        <asp:BoundField DataField="user_name" HeaderText="Uploaded by" SortExpression="user_name" ReadOnly="True" />       
+                        <asp:BoundField DataField="article_title" HeaderText="Title" SortExpression="article_title" />
+                        <asp:BoundField DataField="article_date" HeaderText="Date uploaded" SortExpression="article_date" DataFormatString="{0:dd-MMM-yy}" />
+                        <asp:BoundField DataField="user_name" HeaderText="Uploaded by" SortExpression="user_name" />
                         <asp:TemplateField HeaderText="Action">
 
                             <ItemTemplate>
-                                <asp:LinkButton ID="editBtn" runat="server" OnClick="editBtn_Click" CausesValidation="false" CommandName="Select" CssClass="myButton" Text="Edit status"></asp:LinkButton>
+                                <asp:LinkButton ID="approveBtn" runat="server" OnClick="approveBtn_Click" CausesValidation="false" CommandName="Select" CssClass="myButton" Text="Approve"></asp:LinkButton>
+                                <asp:LinkButton ID="rejectBtn" runat="server" OnClick="rejectBtn_Click" CausesValidation="false" CommandName="Select" CssClass="myButton" Text="Reject"></asp:LinkButton>
+
                             </ItemTemplate>
 
                             <ControlStyle CssClass="myButton" />

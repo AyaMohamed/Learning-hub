@@ -46,7 +46,7 @@ namespace Lhub_Project
         {
             int flag = 0;
             string query = @"select USER_name , USER_password from USER_lhub where 
-                    (USER_name ='" + uName + "' or user_email ='"+uName+"' )and " +
+                    (USER_name ='" + uName + "' or user_email ='" + uName + "' )and " +
                     "USER_password='" + pw + "'";
             SqlCommand sqlCommand = new SqlCommand(query, con);
             con.Open();
@@ -75,7 +75,7 @@ namespace Lhub_Project
             string query = "select count(*) from user_lhub ";
             SqlCommand sqlCommand = new SqlCommand(query, con);
             con.Open();
-            int count =(int) sqlCommand.ExecuteScalar();
+            int count = (int)sqlCommand.ExecuteScalar();
             con.Close();
             return count;
         }
@@ -93,11 +93,11 @@ namespace Lhub_Project
             sqlCommand.Parameters.AddWithValue("@password", pw);
             sqlCommand.Parameters.AddWithValue("@Fname", FName);
             sqlCommand.Parameters.AddWithValue("@Lname", LName);
-            
+
             sqlCommand.ExecuteNonQuery();
             con.Close();
             int result = 0;
-            if(getCount()==newCount)
+            if (getCount() == newCount)
             {
                 result = 1;
             }
@@ -144,7 +144,7 @@ namespace Lhub_Project
             SqlCommand sqlCommand = new SqlCommand(query, con);
             sqlCommand.Parameters.Add("@uName", SqlDbType.NVarChar).Value = uName;
             SqlDataReader dr = sqlCommand.ExecuteReader();
-            while(dr.Read())
+            while (dr.Read())
             {
                 id = dr["user_id"].ToString();
             }
@@ -169,7 +169,7 @@ namespace Lhub_Project
             return id;
         }
         //follow category
-        public void followCategory(string userName,string categoryName)
+        public void followCategory(string userName, string categoryName)
         {
             string userID = getUserID(userName);
             string categoryID = getCategoryID(categoryName);
@@ -180,7 +180,7 @@ namespace Lhub_Project
             sqlCommand.Parameters.Add("@userid", SqlDbType.NVarChar).Value = userID;
             sqlCommand.ExecuteNonQuery();
             con.Close();
-            
+
         }
         //unfollow category
         public void unfollowCategory(string userName, string categoryName)
@@ -211,15 +211,15 @@ namespace Lhub_Project
             return dataTable;
 
         }
-        public int resetPassword(string email,string password)
+        public int resetPassword(string email, string password)
         {
-            
+
             string query = @"update User_lhub set USER_password=@pw where USER_Email=@email";
             con.Open();
             SqlCommand sqlCommand = new SqlCommand(query, con);
             sqlCommand.Parameters.Add("@pw", SqlDbType.NVarChar).Value = password;
             sqlCommand.Parameters.Add("@email", SqlDbType.NVarChar).Value = email;
-            int line=sqlCommand.ExecuteNonQuery();//# of rows affected
+            int line = sqlCommand.ExecuteNonQuery();//# of rows affected
             //if line == 0 ==> not updated
             //if line ==1 ==> updated
             con.Close();
@@ -256,9 +256,9 @@ namespace Lhub_Project
          * 5. article is saved into article table
          * */
         //=================insert into temp table=============================//
-        public void insertArticle(string title,string text,string author,string categoryID,DateTime date,string video,string audio)
+        public void insertArticle(string title, string text, string author, string categoryID, DateTime date, string video, string audio)
         {
-            int count = getArticleCount()+1;
+            int count = getArticleCount() + 1;
             string articleID = "Article_ID_" + count;
             string query = @"insert into article_temp values(@articleid,@articletxt,@video,@audio
                             @title,@articledate,@catid,@author)";
@@ -277,12 +277,12 @@ namespace Lhub_Project
             con.Close();
         }
 
-        public int reviewArticle(string option,string author,string title)
+        public int reviewArticle(string option, string author, string title)
         {
             int result = 0;
             //byte[] video,audio;
-            string id = "", text = "",  catID = "";
-            DateTime date = DateTime.Now ;
+            string id = "", text = "", catID = "";
+            DateTime date = DateTime.Now;
             string query = @"select * from article_temp where user_name=@author
                             and article_title=@title";
             con.Open();
@@ -290,7 +290,7 @@ namespace Lhub_Project
             sqlCommand.Parameters.Add("@author", SqlDbType.VarChar).Value = author;
             sqlCommand.Parameters.Add("@title", SqlDbType.VarChar).Value = title;
             SqlDataReader dr = sqlCommand.ExecuteReader();
-            while(dr.Read())
+            while (dr.Read())
             {
                 id = dr["article_id"].ToString();
                 text = dr["article_text"].ToString();
@@ -308,7 +308,7 @@ namespace Lhub_Project
             sqlCommand.ExecuteNonQuery();
             con.Close();
             //===========================
-            if (option.ToLower()=="approve")
+            if (option.ToLower() == "approve")
             {
                 query = @"insert into article_lhub (article_id,article_text
                    ,article_title,article_date, category_id,article_author)
@@ -330,12 +330,28 @@ namespace Lhub_Project
                 result = 1;
 
             }
-            else if(option.ToLower()=="reject")
+            else if (option.ToLower() == "reject")
             {
                 result = 0;
             }
             return result;
 
+        }
+        public DataTable getRequestsByTitleAuthor(string title, string author)
+        {
+            string query = @"SELECT [article_title] as Title, [user_name] as [Author Name], [article_date] as 
+                        [Published Date],[article_id] FROM [article_Temp] where article_title=@title 
+                        and article_author=@author ORDER BY [article_date] DESC";
+            con.Open();
+            SqlCommand sqlCommand = new SqlCommand(query, con);
+            sqlCommand.Parameters.Add("@title", SqlDbType.VarChar).Value = title;
+            sqlCommand.Parameters.Add("@author", SqlDbType.VarChar).Value = author;
+            SqlDataReader sqlDataReader = sqlCommand.ExecuteReader();
+            DataTable dataTable = new DataTable();
+            dataTable.Load(sqlDataReader);
+            con.Close();
+            sqlDataReader.Close();
+            return dataTable;
         }
 
     }

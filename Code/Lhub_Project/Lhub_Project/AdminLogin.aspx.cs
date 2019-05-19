@@ -16,7 +16,8 @@ namespace Lhub_Project
 
         protected void loginBtn_Click(object sender, EventArgs e)
         {
-            Response.Redirect("AdminRequests.aspx");
+            string queryString = "userName=" + usernameTxt.Text.ToString();
+            Response.Redirect("AdminRequests.aspx?"+queryString);
         }
     }
 }

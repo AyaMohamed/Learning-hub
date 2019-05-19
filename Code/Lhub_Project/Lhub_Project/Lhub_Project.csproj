@@ -77,6 +77,7 @@
   <ItemGroup>
     <Content Include="AdminLogin.aspx" />
     <Content Include="AdminRequests.aspx" />
+    <Content Include="AdminRequests2.aspx" />
     <Content Include="ArticlesPage.aspx" />
     <Content Include="images\icons\logo.ico" />
     <Content Include="CategoryPage.aspx" />
@@ -214,6 +215,13 @@
     </Compile>
     <Compile Include="AdminRequests.aspx.designer.cs">
       <DependentUpon>AdminRequests.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AdminRequests2.aspx.cs">
+      <DependentUpon>AdminRequests2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminRequests2.aspx.designer.cs">
+      <DependentUpon>AdminRequests2.aspx</DependentUpon>
     </Compile>
     <Compile Include="ArticleClass.cs" />
     <Compile Include="ArticlesPage.aspx.cs">
