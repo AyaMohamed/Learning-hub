@@ -155,32 +155,33 @@
         </div>
         <br />
         <br />
-        <div class="wrap-input100 validate-input m-b-36" style="margin-left:10%">
-            <span class="txt1 p-b-11">Category Name
-            </span>
-            <input runat="server" class="input100" style="height: 30%; width: 10%" id="categorytxt" type="text" />
-            <span class="focus-input100"></span>
+        <div class="wrap-input100 validate-input m-b-36" style="margin-left: 10%">
+            <span class="txt1 p-b-11">Category Name &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            
+            <asp:DropDownList ID="catList" Style="width: 30%; height: 40%" CssClass="srchLbl" runat="server" DataSourceID="SqlDataSource1" DataTextField="category_name" DataValueField="category_name"></asp:DropDownList>
+                <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:Learning_LhubConnectionString5 %>" SelectCommand="SELECT [category_name] FROM [category_lhub] ORDER BY [category_name]"></asp:SqlDataSource>
+            </span><span class="focus-input100"></span>
         </div>
         <br />
-        <div class="wrap-input100 validate-input m-b-36" style="margin-left:10%">
-            <span class="txt1 p-b-11">Article title &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="wrap-input100 validate-input m-b-36" style="margin-left: 10%">
+            <span class="txt1 p-b-11" >Article title 
             </span>
-            <input runat="server" class="input100" style="height: 30%; width: 10%" id="titletxt" type="text" />
+            <input runat="server" class="input100" style="height: 30%; width: 30%" id="titletxt" type="text" />
             <span class="focus-input100"></span>
         </div>
         <br />
 
 
-        <div class="wrap-input100 validate-input m-b-36" style="margin-left:10%">
+        <div class="wrap-input100 validate-input m-b-36" style="margin-left: 10%">
             <%--<input class="input100" type="text" name="First Name" >--%>
-            <span class="txt1 p-b-11" style="vertical-align: top">Article Text &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <span class="txt1 p-b-11" style="vertical-align: top">Article Text &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             </span>
-            <textarea id="texttxt" runat="server"  style="width: 350px; height: 111px; resize:none; margin: 0px 0px 0px 12.1406px;" cols="52" rows="1" class="srchLbl"></textarea>
+            <textarea id="texttxt" runat="server" style="resize:none; width: 385px; height: 97px; margin: 0px 0px 0px 12.125px;" cols="52" rows="1" class="srchLbl"></textarea>
             <span class="focus-input100"></span>
         </div>
         <br />
         <br />
-        <div class="container-login100-form-btn" style="margin-left:10%">
+        <div class="container-login100-form-btn" style="margin-left: 10%">
             <%--<button class="login100-form-btn" runat="server" onserverclick="Registertion">
 							Sign Up
 						</button>--%>

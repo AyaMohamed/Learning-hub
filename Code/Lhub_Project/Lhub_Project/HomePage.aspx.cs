@@ -12,6 +12,7 @@ namespace Lhub_Project
         DataAccessLayer dataAccessLayer = new DataAccessLayer();
         protected void Page_Load(object sender, EventArgs e)
         {
+            
             nameLbl.Text = Request.QueryString["userName"];
             DataTable dt = dataAccessLayer.getArticles();
             if(txtsrch.Text!="")

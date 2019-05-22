@@ -31,13 +31,22 @@ namespace Lhub_Project {
         protected global::System.Web.UI.WebControls.Label nameLbl;
         
         /// <summary>
-        /// categorytxt control.
+        /// catList control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText categorytxt;
+        protected global::System.Web.UI.WebControls.DropDownList catList;
+        
+        /// <summary>
+        /// SqlDataSource1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource1;
         
         /// <summary>
         /// titletxt control.

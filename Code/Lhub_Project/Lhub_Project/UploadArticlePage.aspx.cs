@@ -22,11 +22,12 @@ namespace Lhub_Project
 
         protected void uploadArticleBtn_Click(object sender, EventArgs e)
         {
+
             UserClass user = new UserClass();
             string name = nameLbl.Text.ToString();
             string text = texttxt.Value.ToString();
             string title = titletxt.Value.ToString();
-            string categoryname = categorytxt.Value.ToString();
+            string categoryname = catList.SelectedValue.ToString();
             user.uploadArticle(name, text, title, categoryname);
         }
     }
