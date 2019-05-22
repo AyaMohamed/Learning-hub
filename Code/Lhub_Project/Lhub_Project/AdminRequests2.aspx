@@ -25,6 +25,7 @@
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700,800" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,700" rel="stylesheet">
 
+    <link rel="icon" type="image/png" href="images/icons/logo.ico" />
     <!-- Animate.css -->
     <link rel="stylesheet" href="css/animate.css">
     <!-- Icomoon Icon Fonts-->
@@ -104,22 +105,18 @@
             </nav>
 
             <div class="col-md-8 text-center">
-                <span class="txt1 p-b-12">Pending Requests
-                   
-                    <asp:Button ID="addCategoryBtn" runat="server" Style="text-align: center; margin-left: 10%; display: inline-block" CssClass="myButton" Text="Add new Category" />
-                </span>
-
-                <asp:GridView ID="newGrid" runat="server"  CssClass="mydatagrid" PagerStyle-CssClass="pager"
+                
+                <asp:GridView ID="newGrid" runat="server" CssClass="mydatagrid" PagerStyle-CssClass="pager"
                     HeaderStyle-CssClass="header" RowStyle-CssClass="rows" AllowPaging="True" AutoGenerateColumns="False" OnSelectedIndexChanged="newGrid_SelectedIndexChanged" DataSourceID="SqlDataSource1">
                     <Columns>
-                        <asp:BoundField DataField="article_title" HeaderText="Title" SortExpression="article_title" />
-                        <asp:BoundField DataField="article_date" HeaderText="Date uploaded" SortExpression="article_date" DataFormatString="{0:dd-MMM-yy}" />
-                        <asp:BoundField DataField="user_name" HeaderText="Uploaded by" SortExpression="user_name" />
+                        <asp:BoundField DataField="article_title" HeaderText="Article Title" SortExpression="article_title" />
+                        <asp:BoundField DataField="article_date" HeaderText="Date uploaded" SortExpression="article_date" />
+                        <asp:BoundField DataField="user_name" HeaderText="Uploaded by" SortExpression="user_name" ReadOnly="True" />
                         <asp:TemplateField HeaderText="Action">
 
                             <ItemTemplate>
-                                <asp:LinkButton ID="approveBtn" runat="server" OnClick="approveBtn_Click" CausesValidation="false" CommandName="Select" CssClass="myButton" Text="Approve"></asp:LinkButton>
-                                <asp:LinkButton ID="rejectBtn" runat="server" OnClick="rejectBtn_Click" CausesValidation="false" CommandName="Select" CssClass="myButton" Text="Reject"></asp:LinkButton>
+                                <asp:LinkButton ID="approveBtn" runat="server" OnClick="approveBtn_Click" CausesValidation="false" CommandName="Select" CssClass="myButton" Text="approve"></asp:LinkButton>
+                                <asp:LinkButton ID="rejectBtn" runat="server" OnClick="rejectBtn_Click" CausesValidation="false" CommandName="Select" CssClass="myButton" Text="reject"></asp:LinkButton>
 
                             </ItemTemplate>
 
@@ -133,7 +130,12 @@
 
                     <RowStyle CssClass="rows"></RowStyle>
                 </asp:GridView>
-                <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:Learning_LhubConnectionString4 %>" SelectCommand="SELECT [article_title], [article_date], [user_name] FROM [article_Temp]"></asp:SqlDataSource>
+                <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:Learning_LhubConnectionString4 %>" SelectCommand="SELECT [article_title], [article_date], [user_name] FROM [article_Temp] WHERE (([article_title] = @article_title) AND ([user_name] = @user_name))">
+                    <SelectParameters>
+                        <asp:QueryStringParameter Name="article_title" QueryStringField="title" Type="String" />
+                        <asp:QueryStringParameter Name="user_name" QueryStringField="author" Type="String" />
+                    </SelectParameters>
+                </asp:SqlDataSource>
             </div>
 
             <%--<div class="gototop js-top">

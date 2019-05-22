@@ -22,7 +22,13 @@ namespace Lhub_Project
             }
             if (dt.Rows.Count == 0)
             {
-                Response.Write("<script>alert('No articles found !')</script>");
+                //Response.Write("<script>alert('No articles found !')</script>");
+                //panel1.Visible = false;
+                //panel2.Visible = false;
+                //panel3.Visible = false;
+                //panel4.Visible = false;
+                //panel5.Visible = false;
+                //Response.Write("<script>alert('No articles found !')</script>");
             }
             else
             {

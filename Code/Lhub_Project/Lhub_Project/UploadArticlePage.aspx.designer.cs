@@ -10,7 +10,7 @@
 namespace Lhub_Project {
     
     
-    public partial class AdminRequests2 {
+    public partial class UploadArticlePage {
         
         /// <summary>
         /// txtsrch control.
@@ -31,21 +31,39 @@ namespace Lhub_Project {
         protected global::System.Web.UI.WebControls.Label nameLbl;
         
         /// <summary>
-        /// newGrid control.
+        /// categorytxt control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView newGrid;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText categorytxt;
         
         /// <summary>
-        /// SqlDataSource1 control.
+        /// titletxt control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource1;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText titletxt;
+        
+        /// <summary>
+        /// texttxt control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlTextArea texttxt;
+        
+        /// <summary>
+        /// uploadArticleBtn control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button uploadArticleBtn;
     }
 }

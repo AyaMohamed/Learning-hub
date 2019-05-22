@@ -73,5 +73,11 @@ namespace Lhub_Project
             DataTable dt = dataAccessLayer.searchArticle(word);
             return dt;
         }
+
+        public void uploadArticle(string username, string text, string title, string categoryname)
+        {
+            DataAccessLayer dataAccessLayer = new DataAccessLayer();
+            dataAccessLayer.uploadArticle(username, text, title, categoryname);
+        }
     }
 }
