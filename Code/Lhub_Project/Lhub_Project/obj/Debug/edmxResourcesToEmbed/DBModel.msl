@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Learning_hubModelStoreContainer" CdmEntityContainer="Learning_hubEntities2">
+    <EntitySetMapping Name="Article_lhub">
+      <EntityTypeMapping TypeName="Learning_hubModel.Article_lhub">
+        <MappingFragment StoreEntitySet="Article_lhub">
+          <ScalarProperty Name="Article_ID" ColumnName="Article_ID" />
+          <ScalarProperty Name="Article_text" ColumnName="Article_text" />
+          <ScalarProperty Name="Article_video" ColumnName="Article_video" />
+          <ScalarProperty Name="Article_Record" ColumnName="Article_Record" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="category_lhub">
+      <EntityTypeMapping TypeName="Learning_hubModel.category_lhub">
+        <MappingFragment StoreEntitySet="category_lhub">
+          <ScalarProperty Name="category_id" ColumnName="category_id" />
+          <ScalarProperty Name="category_name" ColumnName="category_name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="USER_lhub">
+      <EntityTypeMapping TypeName="Learning_hubModel.USER_lhub">
+        <MappingFragment StoreEntitySet="USER_lhub">
+          <ScalarProperty Name="USER_id" ColumnName="USER_id" />
+          <ScalarProperty Name="USER_name" ColumnName="USER_name" />
+          <ScalarProperty Name="USER_Email" ColumnName="USER_Email" />
+          <ScalarProperty Name="USER_password" ColumnName="USER_password" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

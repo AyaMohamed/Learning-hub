@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Learning_hubModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <!--Errors Found During Generation:
+warning 6013: The table/view 'Learning_hub.dbo.Admin_lhub' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="Admin_lhub">
+          <Property Name="Admin_name" Type="varchar" MaxLength="50" />
+          <Property Name="Admin_Email" Type="varchar" MaxLength="50" />
+          <Property Name="Admin_password" Type="varchar" MaxLength="50" />
+        </EntityType>-->
+  <EntityType Name="Article_lhub">
+    <Key>
+      <PropertyRef Name="Article_ID" />
+    </Key>
+    <Property Name="Article_ID" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Article_text" Type="varchar" MaxLength="50" />
+    <Property Name="Article_video" Type="varchar" MaxLength="50" />
+    <Property Name="Article_Record" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="category_lhub">
+    <Key>
+      <PropertyRef Name="category_id" />
+    </Key>
+    <Property Name="category_id" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="category_name" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6013: The table/view 'Learning_hub.dbo.User_Follow_Category_lhub' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="User_Follow_Category_lhub">
+          <Property Name="Article_ID" Type="varchar" MaxLength="50" />
+          <Property Name="USER_id" Type="varchar" MaxLength="50" />
+        </EntityType>-->
+  <EntityType Name="USER_lhub">
+    <Key>
+      <PropertyRef Name="USER_id" />
+    </Key>
+    <Property Name="USER_id" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="USER_name" Type="varchar" MaxLength="50" />
+    <Property Name="USER_Email" Type="varchar" MaxLength="50" />
+    <Property Name="USER_password" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityContainer Name="Learning_hubModelStoreContainer">
+    <EntitySet Name="Article_lhub" EntityType="Self.Article_lhub" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="category_lhub" EntityType="Self.category_lhub" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="USER_lhub" EntityType="Self.USER_lhub" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

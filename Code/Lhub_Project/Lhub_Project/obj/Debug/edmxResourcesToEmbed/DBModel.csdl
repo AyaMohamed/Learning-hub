@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Learning_hubModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Article_lhub">
+    <Key>
+      <PropertyRef Name="Article_ID" />
+    </Key>
+    <Property Name="Article_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Article_text" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Article_video" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Article_Record" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="category_lhub">
+    <Key>
+      <PropertyRef Name="category_id" />
+    </Key>
+    <Property Name="category_id" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="category_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="USER_lhub">
+    <Key>
+      <PropertyRef Name="USER_id" />
+    </Key>
+    <Property Name="USER_id" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="USER_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="USER_Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="USER_password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityContainer Name="Learning_hubEntities2" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Article_lhub" EntityType="Self.Article_lhub" />
+    <EntitySet Name="category_lhub" EntityType="Self.category_lhub" />
+    <EntitySet Name="USER_lhub" EntityType="Self.USER_lhub" />
+  </EntityContainer>
+</Schema>
