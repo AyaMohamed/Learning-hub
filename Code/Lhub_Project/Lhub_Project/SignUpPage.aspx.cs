@@ -28,8 +28,8 @@ namespace Lhub_Project
             }
             else
             {
-                string script = "alert(\"Sign up failed , please try again\");";
-                ScriptManager.RegisterStartupScript(this, GetType(), "ServerControlScript", script, true);
+                Response.Write("<script>alert('Username already exists , please try again')</script>");
+                //Response.Redirect("SignUpPage.aspx");
             }
         }
 

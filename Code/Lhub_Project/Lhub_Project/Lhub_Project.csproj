@@ -79,6 +79,12 @@
     <Content Include="AdminRequests.aspx" />
     <Content Include="AdminRequests2.aspx" />
     <Content Include="ArticlesPage.aspx" />
+    <Content Include="images\122a6541-7fca-41a8-9e91-1cc30b88e1db.jpg" />
+    <Content Include="images\25d781c6-e0ce-4906-879f-67234815d6d5.jpg" />
+    <Content Include="images\76ba31b9-b382-4ae8-929e-3327c7267c94.jpg" />
+    <Content Include="images\935a20b3-1101-4d3b-8d9d-aa3a8c00d7fb.jpg" />
+    <Content Include="images\aa40dde6-485c-4e91-a3b0-7b9c9bb90a5b.jpg" />
+    <Content Include="images\background1.jpg" />
     <Content Include="images\icons\logo.ico" />
     <Content Include="CategoryPage.aspx" />
     <Content Include="css\animate.css" />
@@ -167,6 +173,8 @@
     <Content Include="ResetPasswordPage.aspx" />
     <Content Include="SearchResultsPage.aspx" />
     <Content Include="SignUpPage.aspx" />
+    <Content Include="UserProfilePage.aspx" />
+    <Content Include="UploadArticlePage.aspx" />
     <Content Include="vendor\animate\animate.css" />
     <Content Include="vendor\animsition\css\animsition.css" />
     <Content Include="vendor\animsition\css\animsition.min.css" />
@@ -278,6 +286,20 @@
     </Compile>
     <Compile Include="SignUpPage.aspx.designer.cs">
       <DependentUpon>SignUpPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UserProfilePage.aspx.cs">
+      <DependentUpon>UserProfilePage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserProfilePage.aspx.designer.cs">
+      <DependentUpon>UserProfilePage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UploadArticlePage.aspx.cs">
+      <DependentUpon>UploadArticlePage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UploadArticlePage.aspx.designer.cs">
+      <DependentUpon>UploadArticlePage.aspx</DependentUpon>
     </Compile>
     <Compile Include="User.cs" />
     <Compile Include="UserClass.cs" />

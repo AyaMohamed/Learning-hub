@@ -10,7 +10,16 @@
 namespace Lhub_Project {
     
     
-    public partial class ArticlesPage {
+    public partial class UploadArticlePage {
+        
+        /// <summary>
+        /// txtsrch control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtsrch;
         
         /// <summary>
         /// nameLbl control.
@@ -22,13 +31,22 @@ namespace Lhub_Project {
         protected global::System.Web.UI.WebControls.Label nameLbl;
         
         /// <summary>
-        /// categorytxt control.
+        /// catList control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText categorytxt;
+        protected global::System.Web.UI.WebControls.DropDownList catList;
+        
+        /// <summary>
+        /// SqlDataSource1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource1;
         
         /// <summary>
         /// titletxt control.
@@ -40,24 +58,6 @@ namespace Lhub_Project {
         protected global::System.Web.UI.HtmlControls.HtmlInputText titletxt;
         
         /// <summary>
-        /// datetxt control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText datetxt;
-        
-        /// <summary>
-        /// authortxt control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText authortxt;
-        
-        /// <summary>
         /// texttxt control.
         /// </summary>
         /// <remarks>
@@ -65,5 +65,14 @@ namespace Lhub_Project {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlTextArea texttxt;
+        
+        /// <summary>
+        /// uploadArticleBtn control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button uploadArticleBtn;
     }
 }
