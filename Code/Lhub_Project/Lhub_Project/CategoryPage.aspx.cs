@@ -35,7 +35,7 @@ namespace Lhub_Project
             }
             if(dt.Rows.Count==0)
             {
-                Response.Write("<script>alert('No articles yet in this category !')</script>");
+                //Response.Write("<script>alert('No articles yet in this category !')</script>");
             }
             else
             {

@@ -25,6 +25,7 @@
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700,800" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,700" rel="stylesheet">
 
+    <link rel="icon" type="image/png" href="images/icons/logo.ico" />
     <!-- Animate.css -->
     <link rel="stylesheet" href="css/animate.css">
     <!-- Icomoon Icon Fonts-->
@@ -113,7 +114,7 @@
                     HeaderStyle-CssClass="header" RowStyle-CssClass="rows" AllowPaging="True" AutoGenerateColumns="False" OnSelectedIndexChanged="newGrid_SelectedIndexChanged" DataSourceID="SqlDataSource1">
                     <Columns>
                          <asp:BoundField DataField="article_title" HeaderText="Article Title" SortExpression="article_title" />
-                        <asp:BoundField DataField="article_date" HeaderText="Date uploaded" SortExpression="article_date" />
+                        <asp:BoundField DataField="article_date" HeaderText="Date uploaded" SortExpression="article_date" DataFormatString="{0:dd-MM-yyyy}" />
                         <asp:BoundField DataField="user_name" HeaderText="Uploaded by" SortExpression="user_name" ReadOnly="True" />       
                         <asp:TemplateField HeaderText="Action">
 
@@ -131,7 +132,11 @@
 
                     <RowStyle CssClass="rows"></RowStyle>
                 </asp:GridView>
-                <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:Learning_LhubConnectionString4 %>" SelectCommand="SELECT [article_title], [article_date], [user_name] FROM [article_Temp]"></asp:SqlDataSource>
+                <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:Learning_LhubConnectionString4 %>" SelectCommand="SELECT [article_title], [article_date], [user_name] FROM [article_Temp] WHERE ([status] = @status)">
+                    <SelectParameters>
+                        <asp:Parameter DefaultValue="pending approval" Name="status" Type="String" />
+                    </SelectParameters>
+                </asp:SqlDataSource>
             </div>
 
             <%--<div class="gototop js-top">

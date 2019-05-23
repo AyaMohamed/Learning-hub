@@ -12,17 +12,16 @@ namespace Lhub_Project
         public static string option;
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            //check if the page is first time to load
+           
+                nameLbl.Text = Request.QueryString["username"];
+                
         }
 
 
         protected void approveBtn_Click(object sender, EventArgs e)
         {
             option = "approve";
-            ////GridViewRow row = newGrid.SelectedRow;
-            //string id = "hello";
-            //string script = "alert(\"" + id + "\");";
-            //ScriptManager.RegisterStartupScript(this, GetType(), "ServerControlScript", script, true);
 
         }
 
@@ -37,7 +36,7 @@ namespace Lhub_Project
             GridViewRow row = newGrid.Rows[newGrid.SelectedRow.RowIndex];
 
             string title = row.Cells[0].Text.ToString();
-            string author = row.Cells[1].Text.ToString();
+            string author = row.Cells[2].Text.ToString();
             
             AdminClass admin = new AdminClass();
             int result = admin.reviewArticle(option, author, title);

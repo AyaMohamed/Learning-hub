@@ -18,10 +18,11 @@ namespace Lhub_Project
             emailA = getEmail();
             passwordA = getPassword();
         }
-        public void login_admin(string username, string password)
+        public int login_admin(string username, string password)
         {
             DataAccessLayer dl = new DataAccessLayer();
-            dl.login(username, password);
+            int result=dl.loginAdmin(username, password);
+            return result;
         }
         public int reviewArticle(string option, string articleauthor, string articletitle)
         {

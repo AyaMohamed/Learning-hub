@@ -16,8 +16,21 @@ namespace Lhub_Project
 
         protected void loginBtn_Click(object sender, EventArgs e)
         {
-            string queryString = "userName=" + usernameTxt.Text.ToString();
-            Response.Redirect("AdminRequests.aspx?"+queryString);
+            AdminClass admin = new AdminClass();
+            int result = admin.login_admin(usernameTxt.Text.ToString(), passwordTxt.Text.ToString());
+            if (result == 1)
+            {
+                string queryString = "userName=" + usernameTxt.Text.ToString();
+                Response.Redirect("AdminRequests.aspx?" + queryString);
+
+            }
+            else if (result == 0)
+            {
+                string script = "alert(\"Username or password is incorrect\");";
+                ScriptManager.RegisterStartupScript(this, GetType(), "ServerControlScript", script, true);
+
+            }
+
         }
     }
 }

@@ -65,11 +65,7 @@
 
                     <div class="container-login100-form-btn">
                         <asp:Button ID="loginBtn" runat="server" CssClass="login100-form-btn" Text="Login" OnClick="loginBtn_Click" />
-                       <%-- <asp:Button ID="forgetPassBtn" runat="server" CssClass="login100-form-btn" Text="Forget your Password" OnClick="forgetPassBtn_Click" />
-
-                        <a href="SignUpPage.aspx" class="dis-block txt3 hov1 p-r-30 p-t-10 p-b-10 p-l-30">Create account
-							<i class="fa fa-long-arrow-right m-l-5"></i>
-                        </a>--%>
+                      
                     </div>
 
                 </form>

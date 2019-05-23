@@ -25,6 +25,7 @@
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700,800" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,700" rel="stylesheet">
 
+    <link rel="icon" type="image/png" href="images/icons/logo.ico" />
     <!-- Animate.css -->
     <link rel="stylesheet" href="css/animate.css">
     <!-- Icomoon Icon Fonts-->
@@ -61,10 +62,10 @@
         }
     </style>
 </head>
-<body>
+<body  style="background-image:url(../images/background1.jpg);background-repeat:repeat;background-size:cover">
 
     <div class="colorlib-loader"></div>
-    <form style="display: inline" runat="server" method="post">
+    <form style="display: inline;" runat="server" method="post">
     <div id="page">
         <nav class="colorlib-nav" role="navigation">
          
@@ -75,22 +76,22 @@
                         <div class="col-md-12 text-left menu-2">
                             <ul>
                                 <li class="active"><a href="HomePage.aspx?userName=<%=nameLbl.Text.ToString()%>">
-                                    <img src="images/logo.png" style="height: 10%; width: 10%"></a></li>
+                                    <img src="/images/logo.png" style="height: 10%; width: 10%"></a></li>
 
 
-                                <li><a href="HomePage.aspxuserName=<%=nameLbl.Text.ToString()%>">Home</a></li>
-                                <li><a href="CategoryPage.aspx?catName=network&userName=<%=nameLbl.Text.ToString()%>">Networks</a></li>
+                                <li><a href="HomePage.aspx?userName=<%=nameLbl.Text.ToString()%>">Home</a></li>
+                                <li><a href="CategoryPage.aspx?catName=Network&userName=<%=nameLbl.Text.ToString()%>">Networks</a></li>
                                 <li><a href="CategoryPage.aspx?catName=Embedded systems&userName=<%=nameLbl.Text.ToString()%>">Embedded Systems</a></li>
-                                <li><a href="CategoryPage.aspx?catName=software&userName=<%=nameLbl.Text.ToString()%>">Software</a></li>
+                                <li><a href="CategoryPage.aspx?catName=Software&userName=<%=nameLbl.Text.ToString()%>">Software</a></li>
                                 <li><a href="CategoryPage.aspx?catName=Biotechnology&userName=<%=nameLbl.Text.ToString()%>">Biotechnology</a></li>
                                 <li><a href="#">
                                     <img src="images/notification.png" /></a></li>
-                                <li><a href="#">
+                                <li><a href="UploadArticlePage.aspx?userName=<%=nameLbl.Text.ToString()%>">
                                     <img src="images/add.png" /></a></li>
                                 <li>
                                     <asp:TextBox ID="txtsrch" CssClass="srchLbl" Style="width: 100px; margin-left: 1%;" placeHolder="search" runat="server" TextMode="Search"></asp:TextBox></li>
-                                <li><a href="#">
-                                    <img src="images/user.png" /></a></li>
+                                <li><a href="UserProfilePage.aspx?userName=<%=nameLbl.Text.ToString()%>">
+                                        <img src="images/user.png" /></a></li>
                                 <li>
                                     <asp:Label ID="nameLbl" CssClass="srchLbl" runat="server" Text="Label"></asp:Label></li>
 
@@ -104,12 +105,10 @@
         </nav>
         <br />
         <br />
-        <br />
-        <br />
         <div class="col-md-8">
             <asp:Label ID="Label2" runat="server" Text="Recently uploaded articles" Font-Size="X-Large" Font-Underline="True"></asp:Label>
            
-            <div class="fancy-collapse-panel">
+            <div class="fancy-collapse-panel" style="width:60%">
                 <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
                     <div class="panel panel-default" id="panel1" runat="server">
                         <div class="panel-heading" role="tab" id="headingOne">

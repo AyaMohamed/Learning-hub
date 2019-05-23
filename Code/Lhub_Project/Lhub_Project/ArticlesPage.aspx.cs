@@ -11,7 +11,14 @@ namespace Lhub_Project
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            DataAccessLayer dal = new DataAccessLayer();
+            nameLbl.Text = Request.QueryString["userName"].ToString();
+            titletxt.Value = Request.QueryString["title"].ToString();
+            authortxt.Value = Request.QueryString["userName"].ToString();
+            datetxt.Value = Request.QueryString["date"].ToString();
+            string categoryname = dal.getCategory(titletxt.Value, nameLbl.Text, Convert.ToDateTime(datetxt.Value));
 
+            categorytxt.Value = categoryname;
         }
     }
 }

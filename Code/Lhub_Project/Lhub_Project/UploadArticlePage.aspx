@@ -1,5 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ArticlesPage.aspx.cs" Inherits="Lhub_Project.ArticlesPage" %>
-
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="UploadArticlePage.aspx.cs" Inherits="Lhub_Project.UploadArticlePage" %>
 
 <!DOCTYPE HTML>
 <html>
@@ -105,16 +104,7 @@
 
 
     <div class="colorlib-loader"></div>
-    <form method="post" action="./ArticlesPage.aspx?userName=aya_a1&amp;title=istqb&amp;date=10-Aug-2018" id="ctl00" class="login100-form validate-form flex-sb flex-w">
-        <div class="aspNetHidden">
-            <input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="f0UMiVfmYQZ68xGaJbzGsbqH3puMlBi4C4zLm1JnUVBqGaml8McqfEyoPll6Eaja/QY7e3vZhxnc59B0iwjTs6YdKwdc7rGeTRVD21tDJgQ=" />
-        </div>
-
-        <div class="aspNetHidden">
-
-            <input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="E323A883" />
-            <input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="j+cGPo1idzVXbDbj8+mfuY61ZKIZ/jm3UcZjm10htmxwYTaRNoYNvkvD2HlvdnqKWC0P4mxKCto59gIaeILUMpIxEGhOa80VFj8Mc8hblSIe6UefF6Jf3TrGp8wT+8U+ayYtwcFtWYd83Mu2PfyaInc1iI8t7DpW5sQC8xGbYSpp8aIoAOQS3ao23donkIIgCSJ4LhbYzP01wOKLsQDjsQ399BPfNV9gAGjl/LURc/E=" />
-        </div>
+    <form class="login100-form validate-form flex-sb flex-w" method="post" runat="server">
 
 
         <div id="page">
@@ -126,23 +116,23 @@
 
                             <div class="col-md-12 text-left menu-2">
                                 <ul>
-                                    <li class="active"><a href="HomePage.aspx?userName=Label">
+                                    <li class="active"><a href="HomePage.aspx?userName=<%=nameLbl.Text.ToString()%>">
                                         <img src="images/logo.png" style="height: 10%; width: 10%"></a></li>
 
 
-                                    <li><a href="HomePage.aspx?userName=<%=nameLbl.Text.ToString()%>">Home</a></li>
+                                    <li><a href="HomePage.aspx">Home</a></li>
 
-                                <li><a href="CategoryPage.aspx?catName=network&userName=<%=nameLbl.Text.ToString()%>">Networks</a></li>
-                                <li><a href="CategoryPage.aspx?catName=Embedded systems&userName=<%=nameLbl.Text.ToString()%>">Embedded Systems</a></li>
-                                <li><a href="CategoryPage.aspx?catName=software&userName=<%=nameLbl.Text.ToString()%>">Software</a></li>
-                                <li><a href="CategoryPage.aspx?catName=Biotechnology&userName=<%=nameLbl.Text.ToString()%>">Biotechnology</a></li>
+                                    <li><a href="CategoryPage.aspx?catName=network&userName=<%=nameLbl.Text.ToString()%>">Networks</a></li>
+                                    <li><a href="CategoryPage.aspx?catName=Embedded systems&userName=<%=nameLbl.Text.ToString()%>">Embedded Systems</a></li>
+                                    <li><a href="CategoryPage.aspx?catName=software&userName=<%=nameLbl.Text.ToString()%>">Software</a></li>
+                                    <li><a href="CategoryPage.aspx?catName=Biotechnology&userName=<%=nameLbl.Text.ToString()%>">Biotechnology</a></li>
                                     <li><a href="#">
                                         <img src="images/notification.png" /></a></li>
-                                    <li><a href="UploadArticlePage.aspx?userName=Label">
+                                    <li><a href="UploadArticlePage.aspx?userName=<%=nameLbl.Text.ToString()%>">
                                         <img src="images/add.png" /></a></li>
                                     <li>
-                                        <input name="txtsrch" type="search" id="txtsrch" class="srchLbl" placeholder="search" style="width: 100px; margin-left: 1%;" /></li>
-                                    <li><a href="UserProfilePage.aspx?userName=Label">
+                                        <asp:TextBox ID="txtsrch" CssClass="srchLbl" Style="width: 100px; margin-left: 1%;" placeHolder="search" runat="server" TextMode="Search"></asp:TextBox></li>
+                                  <li><a href="UserProfilePage.aspx?userName=<%=nameLbl.Text.ToString()%>">
                                         <img src="images/user.png" /></a></li>
                                     <li>
                                         <asp:Label ID="nameLbl" CssClass="srchLbl" runat="server" Text="Label"></asp:Label></li>
@@ -159,50 +149,45 @@
             <br />
 
 
-
+            <%--<div class="gototop js-top">
+		<a href="#" class="js-gotop"><i class="icon-arrow-up2"></i></a>
+	</div>--%>
         </div>
         <br />
         <br />
         <div class="wrap-input100 validate-input m-b-36" style="margin-left: 10%">
             <span class="txt1 p-b-11">Category Name &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <input name="Text1" type="text" id="categorytxt" runat="server" disabled="disabled" class="input100" style="height: 30%; width: 30%" />
+            
+            <asp:DropDownList ID="catList" Style="width: 30%; height: 40%" CssClass="srchLbl" runat="server" DataSourceID="SqlDataSource1" DataTextField="category_name" DataValueField="category_name"></asp:DropDownList>
+                <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:Learning_LhubConnectionString5 %>" SelectCommand="SELECT [category_name] FROM [category_lhub] ORDER BY [category_name]"></asp:SqlDataSource>
             </span><span class="focus-input100"></span>
         </div>
         <br />
         <div class="wrap-input100 validate-input m-b-36" style="margin-left: 10%">
-            <span class="txt1 p-b-11">Article title &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <span class="txt1 p-b-11" >Article title 
             </span>
-            <input name="titletxt" type="text" id="titletxt" runat="server" disabled="disabled" class="input100" style="height: 30%; width: 30%" />
-            <span class="focus-input100"></span>
-        </div>
-        <br />
-
-        <div class="wrap-input100 validate-input m-b-36" style="margin-left: 10%">
-            <span class="txt1 p-b-11">Upload Date &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            </span>
-            <input name="datetxt" runat="server" type="text" disabled="disabled" id="datetxt" class="input100" style="height: 30%; width: 30%" />
-            <span class="focus-input100"></span>
-        </div>
-        <br />
-        <div class="wrap-input100 validate-input m-b-36" style="margin-left: 10%">
-            <span class="txt1 p-b-11">Article Author &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            </span>
-            <input name="authortxt" runat="server" type="text" id="authortxt" class="input100" style="height: 30%; width: 30%" disabled="disabled" />
+            <input runat="server" class="input100" style="height: 30%; width: 30%" id="titletxt" type="text" />
             <span class="focus-input100"></span>
         </div>
         <br />
 
 
         <div class="wrap-input100 validate-input m-b-36" style="margin-left: 10%">
-
-            <span class="txt1 p-b-11" style="vertical-align: top">Article Text &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <%--<input class="input100" type="text" name="First Name" >--%>
+            <span class="txt1 p-b-11" style="vertical-align: top">Article Text &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             </span>
-            <textarea name="texttxt" runat="server" id="texttxt" disabled="disabled" style="resize: none; width: 385px; height: 97px; margin: 0px 0px 0px 12.125px;" cols="52" rows="1" class="srchLbl"></textarea>
+            <textarea id="texttxt" runat="server" style="resize:none; width: 385px; height: 97px; margin: 0px 0px 0px 12.125px;" cols="52" rows="1" class="srchLbl"></textarea>
             <span class="focus-input100"></span>
         </div>
         <br />
         <br />
+        <div class="container-login100-form-btn" style="margin-left: 10%">
+            <%--<button class="login100-form-btn" runat="server" onserverclick="Registertion">
+							Sign Up
+						</button>--%>
+            <asp:Button ID="uploadArticleBtn" runat="server" Text="UploadArticle" OnClick="uploadArticleBtn_Click" CssClass="login100-form-btn" />
 
+        </div>
 
 
 
