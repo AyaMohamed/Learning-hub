@@ -87,7 +87,7 @@
                                         <img src="images/add.png" /></a></li>
                                     <li><asp:TextBox ID="txtsrch" CssClass="srchLbl" Style="width: 100px; margin-left: 1%;" placeHolder="search" runat="server" TextMode="Search" OnTextChanged="txtsrch_TextChanged"></asp:TextBox>
                                     </li>
-                                    <li><a href="#">
+                                  <li><a href="UserProfilePage.aspx?userName=<%=nameLbl.Text.ToString()%>">
                                         <img src="images/user.png" /></a></li>
                                     <li>
                                         <asp:Label ID="nameLbl" CssClass="srchLbl" runat="server" Text="Label"></asp:Label></li>

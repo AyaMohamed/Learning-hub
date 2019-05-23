@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="UploadArticlePage.aspx.cs" Inherits="Lhub_Project.UploadArticlePage" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="UserProfilePage.aspx.cs" Inherits="Lhub_Project.UerProfilePage" %>
 
 <!DOCTYPE HTML>
 <html>
@@ -60,7 +60,6 @@
         @-ms-viewport {
             width: device-width;
         }
-
         .container-login100-form-btn {
             width: 100%;
             display: -webkit-box;
@@ -69,12 +68,13 @@
             display: -ms-flexbox;
             display: flex;
             flex-wrap: wrap;
+            
         }
 
         .login100-form-btn {
             font-family: Raleway-Bold;
             font-size: 16px;
-            color: #fff;
+            color: coral;
             line-height: 1.2;
             display: -webkit-box;
             display: -webkit-flex;
@@ -86,7 +86,7 @@
             padding: 0 20px;
             min-width: 150px;
             height: 55px;
-            background-color: #333333;
+            background-color: crimson;
             border-radius: 27px;
             -webkit-transition: all 0.4s;
             -o-transition: all 0.4s;
@@ -100,13 +100,10 @@
             }
     </style>
 </head>
-<body>
-
+<body style="background-image: url(../images/122a6541-7fca-41a8-9e91-1cc30b88e1db.jpg); background-repeat: repeat; background-size: cover">
 
     <div class="colorlib-loader"></div>
-    <form class="login100-form validate-form flex-sb flex-w" method="post" runat="server">
-
-
+    <form style="display: inline;" runat="server" method="post">
         <div id="page">
             <nav class="colorlib-nav" role="navigation">
 
@@ -117,14 +114,13 @@
                             <div class="col-md-12 text-left menu-2">
                                 <ul>
                                     <li class="active"><a href="HomePage.aspx?userName=<%=nameLbl.Text.ToString()%>">
-                                        <img src="images/logo.png" style="height: 10%; width: 10%"></a></li>
+                                        <img src="/images/logo.png" style="height: 10%; width: 10%"></a></li>
 
 
-                                    <li><a href="HomePage.aspx">Home</a></li>
-
-                                    <li><a href="CategoryPage.aspx?catName=network&userName=<%=nameLbl.Text.ToString()%>">Networks</a></li>
+                                    <li><a href="HomePage.aspx?userName=<%=nameLbl.Text.ToString()%>">Home</a></li>
+                                    <li><a href="CategoryPage.aspx?catName=Network&userName=<%=nameLbl.Text.ToString()%>">Networks</a></li>
                                     <li><a href="CategoryPage.aspx?catName=Embedded systems&userName=<%=nameLbl.Text.ToString()%>">Embedded Systems</a></li>
-                                    <li><a href="CategoryPage.aspx?catName=software&userName=<%=nameLbl.Text.ToString()%>">Software</a></li>
+                                    <li><a href="CategoryPage.aspx?catName=Software&userName=<%=nameLbl.Text.ToString()%>">Software</a></li>
                                     <li><a href="CategoryPage.aspx?catName=Biotechnology&userName=<%=nameLbl.Text.ToString()%>">Biotechnology</a></li>
                                     <li><a href="#">
                                         <img src="images/notification.png" /></a></li>
@@ -132,7 +128,7 @@
                                         <img src="images/add.png" /></a></li>
                                     <li>
                                         <asp:TextBox ID="txtsrch" CssClass="srchLbl" Style="width: 100px; margin-left: 1%;" placeHolder="search" runat="server" TextMode="Search"></asp:TextBox></li>
-                                  <li><a href="UserProfilePage.aspx?userName=<%=nameLbl.Text.ToString()%>">
+                                    <li><a href="UserProfilePage.aspx?userName=<%=nameLbl.Text.ToString()%>">
                                         <img src="images/user.png" /></a></li>
                                     <li>
                                         <asp:Label ID="nameLbl" CssClass="srchLbl" runat="server" Text="Label"></asp:Label></li>
@@ -147,53 +143,45 @@
             </nav>
             <br />
             <br />
+            <div class="col-md-8">
+                <asp:Label ID="Label2" runat="server" Text="Recently uploaded articles" Font-Size="X-Large" Font-Underline="True"></asp:Label>
+                <asp:GridView ID="newGrid" runat="server" Style="margin-left: 50px" CssClass="mydatagrid" PagerStyle-CssClass="pager"
+                    HeaderStyle-CssClass="header" RowStyle-CssClass="rows" AutoGenerateColumns="False" DataSourceID="SqlDataSource1" OnSelectedIndexChanged="newGrid_SelectedIndexChanged" >
 
+                    <Columns>
+                        <asp:BoundField DataField="article_title" HeaderText="Article Title" SortExpression="article_title" />
+                        <asp:BoundField DataField="status" HeaderText="Status" SortExpression="status" />
+                        <asp:BoundField DataField="article_date" DataFormatString="{0:dd-MMM-yyyy}" HeaderText="Upload Date" SortExpression="article_date" />
+                        <asp:TemplateField HeaderText="View Details">
+
+                            <ItemTemplate>
+                                <asp:LinkButton ID="detailsBtn" runat="server" OnClick="detailsBtn_Click" CausesValidation="false" CommandName="Select" CssClass="login100-form-btn" Text="View Details"></asp:LinkButton>
+                            </ItemTemplate>
+
+                            <ControlStyle CssClass="login100-form-btn" />
+
+                        </asp:TemplateField>
+                    </Columns>
+
+                    <HeaderStyle CssClass="header"></HeaderStyle>
+
+                    <PagerStyle CssClass="pager"></PagerStyle>
+
+                    <RowStyle CssClass="rows"></RowStyle>
+
+                </asp:GridView>
+                <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:Learning_LhubConnectionString6 %>" SelectCommand="SELECT [article_title], [status], [article_date] FROM [article_Temp] WHERE ([user_name] = @user_name) ORDER BY [article_date] DESC">
+                    <SelectParameters>
+                        <asp:QueryStringParameter Name="user_name" QueryStringField="userName" Type="String" />
+                    </SelectParameters>
+                </asp:SqlDataSource>
+            </div>
 
             <%--<div class="gototop js-top">
 		<a href="#" class="js-gotop"><i class="icon-arrow-up2"></i></a>
 	</div>--%>
         </div>
-        <br />
-        <br />
-        <div class="wrap-input100 validate-input m-b-36" style="margin-left: 10%">
-            <span class="txt1 p-b-11">Category Name &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            
-            <asp:DropDownList ID="catList" Style="width: 30%; height: 40%" CssClass="srchLbl" runat="server" DataSourceID="SqlDataSource1" DataTextField="category_name" DataValueField="category_name"></asp:DropDownList>
-                <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:Learning_LhubConnectionString5 %>" SelectCommand="SELECT [category_name] FROM [category_lhub] ORDER BY [category_name]"></asp:SqlDataSource>
-            </span><span class="focus-input100"></span>
-        </div>
-        <br />
-        <div class="wrap-input100 validate-input m-b-36" style="margin-left: 10%">
-            <span class="txt1 p-b-11" >Article title 
-            </span>
-            <input runat="server" class="input100" style="height: 30%; width: 30%" id="titletxt" type="text" />
-            <span class="focus-input100"></span>
-        </div>
-        <br />
-
-
-        <div class="wrap-input100 validate-input m-b-36" style="margin-left: 10%">
-            <%--<input class="input100" type="text" name="First Name" >--%>
-            <span class="txt1 p-b-11" style="vertical-align: top">Article Text &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            </span>
-            <textarea id="texttxt" runat="server" style="resize:none; width: 385px; height: 97px; margin: 0px 0px 0px 12.125px;" cols="52" rows="1" class="srchLbl"></textarea>
-            <span class="focus-input100"></span>
-        </div>
-        <br />
-        <br />
-        <div class="container-login100-form-btn" style="margin-left: 10%">
-            <%--<button class="login100-form-btn" runat="server" onserverclick="Registertion">
-							Sign Up
-						</button>--%>
-            <asp:Button ID="uploadArticleBtn" runat="server" Text="UploadArticle" OnClick="uploadArticleBtn_Click" CssClass="login100-form-btn" />
-
-        </div>
-
-
-
-
     </form>
-
     <!-- jQuery -->
     <script src="js/jquery.min.js"></script>
     <!-- jQuery Easing -->
@@ -218,5 +206,4 @@
 
 </body>
 </html>
-
 

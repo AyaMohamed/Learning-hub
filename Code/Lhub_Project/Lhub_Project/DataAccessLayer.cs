@@ -152,9 +152,9 @@ namespace Lhub_Project
             return id;
         }
         //to follow a category is to assign userid to a category id ,so we have to insert both values in the joint table 
-        public string getCategoryID(string catName)
+        public string getCategoryIDFromName(string catName)
         {
-            string query = "select category_id from category_lhub where lower(category_name) like '%"+catName+"%' ";
+            string query = "select category_id from category_lhub where lower(category_name) like '%" + catName + "%' ";
             con.Open();
             string id = "";
             SqlCommand sqlCommand = new SqlCommand(query, con);
@@ -172,7 +172,7 @@ namespace Lhub_Project
         public void followCategory(string userName, string categoryName)
         {
             string userID = getUserID(userName);
-            string categoryID = getCategoryID(categoryName);
+            string categoryID = getCategoryIDFromName(categoryName);
             string query1 = "update user_lhub set cat_id =@catid where user_name=@name";
             string query = @"insert into User_Follow_Category_lhub values(@catid,@userid)";
             con.Open();
@@ -192,7 +192,7 @@ namespace Lhub_Project
         public void unfollowCategory(string userName, string categoryName)
         {
             string userID = getUserID(userName);
-            string categoryID = getCategoryID(categoryName);
+            string categoryID = getCategoryIDFromName(categoryName);
             string query1 = "update user_lhub set cat_id =NULL where user_name=@name";
 
             string query = @"delete from User_Follow_Category_lhub where category_id=@catid and user_id =@userid";
@@ -209,7 +209,7 @@ namespace Lhub_Project
         }
         public DataTable getArticlesFromCategory(string categoryName)
         {
-            string catid = getCategoryID(categoryName);
+            string catid = getCategoryIDFromName(categoryName);
             string query = "select article_title as Title, article_author as Author ,article_date as Date from article_lhub where category_id=@catid order by article_date desc";
             con.Open();
             SqlCommand sqlCommand = new SqlCommand(query, con);
@@ -263,7 +263,7 @@ namespace Lhub_Project
          * 1. user upload article
          * 2. article is saved to tmp table
          * 3. admin approve article
-         * 4. article is removed from tmp table
+         * 4. article status is updated in tmp table from pending to approved
          * 5. article is saved into article table
          * */
         //=================insert into temp table=============================//
@@ -295,7 +295,7 @@ namespace Lhub_Project
             string id = "", text = "", catID = "";
             DateTime date = DateTime.Now;
             string query = @"select * from article_temp where user_name=@author
-                            and article_title=@title";
+                            and article_title=@title and status='pending approval'";
             con.Open();
             SqlCommand sqlCommand = new SqlCommand(query, con);
             sqlCommand.Parameters.Add("@author", SqlDbType.VarChar).Value = author;
@@ -311,22 +311,22 @@ namespace Lhub_Project
                 catID = dr["category_id"].ToString();
             }
             con.Close();
-            //==============
-            query = "delete from article_temp where article_id=@id";
-            sqlCommand = new SqlCommand(query, con);
-            con.Open();
-            sqlCommand.Parameters.Add("@id", SqlDbType.VarChar).Value = id;
-            sqlCommand.ExecuteNonQuery();
-            con.Close();
+
             //===========================
             if (option.ToLower() == "approve")
             {
+                string query1 = "update article_temp set status='approved' where article_id=@id";
+                SqlCommand sqlCommand1 = new SqlCommand(query1, con);
+                con.Open();
+                sqlCommand1.Parameters.Add("@id", SqlDbType.VarChar).Value = id;
+                sqlCommand1.ExecuteNonQuery();
+
                 query = @"insert into article_lhub (article_id,article_text
                    ,article_title,article_date, category_id,article_author)
                     values(@id,@articletxt ,@title
                         ,@articledate,@catid,@author)";
                 sqlCommand = new SqlCommand(query, con);
-                con.Open();
+
                 sqlCommand.Parameters.Add("@id", SqlDbType.NVarChar).Value = id;
                 sqlCommand.Parameters.Add("@articletxt", SqlDbType.Text).Value = text;
                 //sqlCommand.Parameters.Add("@video", SqlDbType.VarBinary).Value = video;
@@ -343,6 +343,12 @@ namespace Lhub_Project
             }
             else if (option.ToLower() == "reject")
             {
+                string query1 = "update article_temp set status='rejected' where article_id=@id";
+                SqlCommand sqlCommand1 = new SqlCommand(query1, con);
+                con.Open();
+                sqlCommand1.Parameters.Add("@id", SqlDbType.VarChar).Value = id;
+                sqlCommand1.ExecuteNonQuery();
+                con.Close();
                 result = 0;
             }
             return result;
@@ -366,12 +372,12 @@ namespace Lhub_Project
             return dataTable;
         }
 
-        public void uploadArticle(string username,string text,string title,string categoryname)
+        public void uploadArticle(string username, string text, string title, string categoryname)
         {
             int articleCount = getArticleCount() + 1;
             string articleid = "article_id_" + articleCount;
             string userid = getUserID(username);
-            string categoryid = getCategoryID(categoryname);
+            string categoryid = getCategoryIDFromName(categoryname);
             DateTime date = DateTime.Now;
             string query = @"insert into article_temp (article_id,user_name,article_title,article_date,category_id,article_text)
                 values(@articleid,@uname,@title,@articledate,@catid,@articletext)";
@@ -385,6 +391,43 @@ namespace Lhub_Project
             cmd.Parameters.AddWithValue("@articletext", text);
             cmd.ExecuteNonQuery();
             con.Close();
+        }
+        public string getCategoryNameFromID(string id)
+        {
+            string query = "select category_name from category_lhub where lower(category_id) like '%" + id + "%' ";
+            con.Open();
+            string name = "";
+            SqlCommand sqlCommand = new SqlCommand(query, con);
+            //sqlCommand.Parameters.Add("@catname", SqlDbType.NVarChar).Value = catName;
+            SqlDataReader dr = sqlCommand.ExecuteReader();
+            while (dr.Read())
+            {
+                name = dr["category_name"].ToString();
+            }
+            con.Close();
+            dr.Close();
+            return name;
+        }
+        public string getCategory(string title, string author, DateTime date)
+        {
+            string query = @"select category_id from article_temp where lower(user_name)=@name and
+                article_title=@title and article_date=@articledate ";
+            con.Open();
+            string id = "";
+            SqlCommand sqlCommand = new SqlCommand(query, con);
+            sqlCommand.Parameters.AddWithValue("@name", author);
+            sqlCommand.Parameters.AddWithValue("@title", title);
+            sqlCommand.Parameters.AddWithValue("@articledate", date);
+            SqlDataReader dr = sqlCommand.ExecuteReader();
+            while (dr.Read())
+            {
+                id = dr["category_id"].ToString();
+            }
+            con.Close();
+            string name = getCategoryNameFromID(id);
+
+            dr.Close();
+            return id;
         }
 
     }

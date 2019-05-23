@@ -105,12 +105,12 @@
             </nav>
 
             <div class="col-md-8 text-center">
-                
+                <span class="txt1 p-b-8"  style="">Pending Requests</span>
                 <asp:GridView ID="newGrid" runat="server" CssClass="mydatagrid" PagerStyle-CssClass="pager"
                     HeaderStyle-CssClass="header" RowStyle-CssClass="rows" AllowPaging="True" AutoGenerateColumns="False" OnSelectedIndexChanged="newGrid_SelectedIndexChanged" DataSourceID="SqlDataSource1">
                     <Columns>
                         <asp:BoundField DataField="article_title" HeaderText="Article Title" SortExpression="article_title" />
-                        <asp:BoundField DataField="article_date" HeaderText="Date uploaded" SortExpression="article_date" />
+                        <asp:BoundField DataField="article_date" HeaderText="Date uploaded" SortExpression="article_date" DataFormatString="{0:dd-MMM-yyyy}" />
                         <asp:BoundField DataField="user_name" HeaderText="Uploaded by" SortExpression="user_name" ReadOnly="True" />
                         <asp:TemplateField HeaderText="Action">
 

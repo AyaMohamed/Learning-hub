@@ -132,7 +132,11 @@
 
                     <RowStyle CssClass="rows"></RowStyle>
                 </asp:GridView>
-                <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:Learning_LhubConnectionString4 %>" SelectCommand="SELECT [article_title], [article_date], [user_name] FROM [article_Temp]"></asp:SqlDataSource>
+                <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:Learning_LhubConnectionString4 %>" SelectCommand="SELECT [article_title], [article_date], [user_name] FROM [article_Temp] WHERE ([status] = @status)">
+                    <SelectParameters>
+                        <asp:Parameter DefaultValue="pending approval" Name="status" Type="String" />
+                    </SelectParameters>
+                </asp:SqlDataSource>
             </div>
 
             <%--<div class="gototop js-top">
