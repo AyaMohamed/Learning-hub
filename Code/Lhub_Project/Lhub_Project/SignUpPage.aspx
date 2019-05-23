@@ -36,12 +36,13 @@
         <div class="container-login100">
             <div class="wrap-login100 p-l-85 p-r-85 p-t-55 p-b-55">
                 <form class="login100-form validate-form flex-sb flex-w" method="post" runat="server">
-                    <span class="login100-form-title p-b-32"><img src="images/logo.png" style="height: 10%; width: 10%">Sign up
+                    <span class="login100-form-title p-b-32">
+                        <img src="images/logo.png" style="height: 10%; width: 10%">Sign up
                     </span>
                     <br />
                     <br />
                     <br />
-                    <span class="txt1 p-b-11">Username
+                    <span class="txt1 p-b-11">Username (*)
                     </span>
                     <div class="wrap-input100 validate-input m-b-36" data-validate="Username is required">
                         <%--<input class="input100" type="text" name="username" >--%>
@@ -55,7 +56,7 @@
                         <span class="focus-input100"></span>
                     </div>
 
-                    <span class="txt1 p-b-11">Password
+                    <span class="txt1 p-b-11">Password (*)
                     </span>
 
                     <!--//==========================password field=====================//-->
@@ -78,7 +79,7 @@
 
 
                     <!--//==========================Confirm password field=====================//-->
-                    <span class="txt1 p-b-11">Confirm Password
+                    <span class="txt1 p-b-11">Confirm Password (*)
                     </span>
                     <div class="wrap-input100 validate-input m-b-12" data-validate="Password is required">
                         <span class="btn-show-pass">
@@ -102,7 +103,7 @@
 
                     <!--//==========================email field=====================//-->
 
-                    <span class="txt1 p-b-11">Email
+                    <span class="txt1 p-b-11">Email (*)
                     </span>
                     <div class="wrap-input100 validate-input m-b-36" data-validate="Email is required">
                         <%--<input class="input100" type="text" name="email" >--%>
@@ -121,12 +122,10 @@
 
                     <span class="txt1 p-b-11">First Name
                     </span>
-                    <div class="wrap-input100 validate-input m-b-36" data-validate="First Name is required">
+                    <div class="wrap-input100 validate-input m-b-36" >
                         <%--<input class="input100" type="text" name="First Name" >--%>
                         <asp:TextBox ID="FirstNametxt" runat="server" Class="input100" ValidationGroup=""></asp:TextBox>
-                        <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ErrorMessage="First Name is required"
-                            ControlToValidate="FirstNametxt" Display="Dynamic" Style="color: red; display: inline; top: 10px; left: 427px; position: absolute; height: 22px; width: 128px"
-                            ForeColor="Red">  
+                       
                         </asp:RequiredFieldValidator>
                         <span class="focus-input100"></span>
                     </div>
@@ -136,12 +135,10 @@
                     <!--//==========================last name field  =====================//-->
                     <span class="txt1 p-b-11">Last Name
                     </span>
-                    <div class="wrap-input100 validate-input m-b-36" data-validate="Last Name is required">
+                    <div class="wrap-input100 validate-input m-b-36" >
                         <%--<input class="input100" type="text" name="Last Name" >--%>
                         <asp:TextBox ID="LastNametxt" runat="server" Class="input100" ValidationGroup=""></asp:TextBox>
-                        <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ErrorMessage="Last name is required"
-                            ControlToValidate="LastNametxt" Display="Dynamic" ForeColor="Red"> </asp:RequiredFieldValidator>
-
+                      
                         <span class="focus-input100"></span>
                     </div>
                     <!--//==========================last name field end =====================//-->
@@ -151,7 +148,7 @@
 							Sign Up
 						</button>--%>
                         <asp:Button ID="SignUp" runat="server" Text="Sign up" CssClass="login100-form-btn" OnClick="SignUp_Click" />
-                        <a href="LoginPage.aspx" class="dis-block txt3 hov1 p-r-30 p-t-10 p-b-10 p-l-30" style="font-size: large; color: #f1f1f1;">Have an account ? Sign in
+                        <a href="LoginPage.aspx" class="dis-block txt3 hov1 p-r-30 p-t-10 p-b-10 p-l-30" style="font-size: x-large; color: #429ffd;">Have an account ? Sign in
 						
                             <i class="fa fa-long-arrow-right m-l-5"></i>
                         </a>

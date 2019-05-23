@@ -25,6 +25,7 @@
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700,800" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,700" rel="stylesheet">
 
+    <link rel="icon" type="image/png" href="images/icons/logo.ico" />
     <!-- Animate.css -->
     <link rel="stylesheet" href="css/animate.css">
     <!-- Icomoon Icon Fonts-->
@@ -90,12 +91,12 @@
                                 <li><a href="CategoryPage.aspx?catName=Biotechnology&userName=<%=nameLbl.Text.ToString()%>">Biotechnology</a></li>
                                 <li><a href="#">
                                     <img src="images/notification.png" /></a></li>
-                                <li><a href="#">
+                                <li><a href="UploadArticlePage.aspx?userName=<%=nameLbl.Text.ToString()%>">
                                     <img src="images/add.png" /></a></li>
                                 <li>
                                     <asp:TextBox ID="txtsrch" CssClass="srchLbl" Style="width: 100px; margin-left: 1%;" placeHolder="search" runat="server" TextMode="Search"></asp:TextBox></li>
-                                <li><a href="#">
-                                    <img src="images/user.png" /></a></li>
+                                <li><a href="UserProfilePage.aspx?userName=<%=nameLbl.Text.ToString()%>">
+                                        <img src="images/user.png" /></a></li>
                                 <li>
                                     <asp:Label ID="nameLbl" CssClass="srchLbl" runat="server" Text="Label"></asp:Label></li>
 
@@ -107,7 +108,7 @@
                     </div>
                 </div>
             </nav>
-            
+            <br /><br />
             <div class="col-md-8">
                 <span class="txt1 p-b-11">
                     <asp:Label ID="categoryNamelbl" Style="text-align: center" runat="server" Text="CategoryName" Width="30%"></asp:Label>
