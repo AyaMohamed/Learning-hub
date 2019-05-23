@@ -26,6 +26,9 @@ namespace Lhub_Project
             }
             else if(line==1)
             {
+                string script = "alert(\"Password changed successfully\");";
+                ScriptManager.RegisterStartupScript(this, GetType(), "ServerControlScript", script, true);
+
                 Response.Redirect("HomePage.aspx");
             }
         }

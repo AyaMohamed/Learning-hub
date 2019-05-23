@@ -97,7 +97,7 @@ namespace Lhub_Project
             sqlCommand.ExecuteNonQuery();
             con.Close();
             int result = 0;
-            if (getCount() == newCount)
+            if (validateUserNameDoesnotExist(uName)==1)
             {
                 result = 1;
             }
@@ -427,7 +427,20 @@ namespace Lhub_Project
             string name = getCategoryNameFromID(id);
 
             dr.Close();
-            return id;
+            return name;
+        }
+
+        public int validateUserNameDoesnotExist(string name)
+        {
+            string query = @"select count(*) from user_lhub where user_name =@uname ";
+            con.Open();
+            int num = 0;
+            SqlCommand sqlCommand = new SqlCommand(query, con);
+            sqlCommand.Parameters.AddWithValue("@uname", name);
+
+            num = Convert.ToInt32(sqlCommand.ExecuteScalar());
+            con.Close();
+            return num;
         }
 
     }
