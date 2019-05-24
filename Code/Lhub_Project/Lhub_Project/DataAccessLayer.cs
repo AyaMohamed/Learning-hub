@@ -97,7 +97,7 @@ namespace Lhub_Project
             sqlCommand.ExecuteNonQuery();
             con.Close();
             int result = 0;
-            if (validateUserNameDoesnotExist(uName)==1)
+            if (validateUserNameDoesnotExist(uName) == 1)
             {
                 result = 1;
             }
@@ -240,11 +240,14 @@ namespace Lhub_Project
         public int getArticleCount()
         {
             string query = "select count(*) from article_lhub ";
+            string query2 = "select count (*) from article_temp";
             SqlCommand sqlCommand = new SqlCommand(query, con);
+            SqlCommand cmd = new SqlCommand(query2, con);
             con.Open();
             int count = (int)sqlCommand.ExecuteScalar();
+            int count2 = (int)cmd.ExecuteScalar();
             con.Close();
-            return count;
+            return count + count2;
         }
         public DataTable getRequests()
         {
@@ -443,5 +446,23 @@ namespace Lhub_Project
             return num;
         }
 
+        public string getArticleText(string author,string title,DateTime date)
+        {
+            string query = @"select article_text from article_temp where user_name =@uname 
+                    and article_title=@title and article_date=@articledate ";
+            con.Open();
+            string text = "";
+            SqlCommand sqlCommand = new SqlCommand(query, con);
+            sqlCommand.Parameters.AddWithValue("@uname", author);
+            sqlCommand.Parameters.AddWithValue("@title", title);
+            sqlCommand.Parameters.AddWithValue("@articledate", date);
+            SqlDataReader dr = sqlCommand.ExecuteReader();
+            while (dr.Read())
+            {
+                text = dr["article_text"].ToString();
+            }
+            con.Close();
+            return text;
+        }
     }
 }

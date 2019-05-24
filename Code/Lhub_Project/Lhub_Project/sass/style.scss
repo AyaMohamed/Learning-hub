@@ -714,10 +714,10 @@ h1, h2, h3, h4, h5, h6, figure {
 .panel-heading a.collapsed:after {
 	content: "\e0c4";
 }
-.panel-heading a.collapsed{
-	background: $brand-gray;
-	border: 1px solid lighten($brand-black,90%) !important;
-	color: lighten($brand-black,20%);
+.panel-heading a.collapsed {
+    background: transparent;
+    border: 1px solid #e79a80 !important;
+    color: #d78171;
 }
 .panel-body{
 	padding: 1.5em;

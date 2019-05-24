@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 namespace Lhub_Project
 {
-    public partial class UerProfilePage : System.Web.UI.Page
+    public partial class UserProfilePage : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -19,11 +19,13 @@ namespace Lhub_Project
             GridViewRow row = newGrid.Rows[newGrid.SelectedRow.RowIndex];
 
             string title = row.Cells[0].Text.ToString();
-            string date = row.Cells[2].Text.ToString();
+            string author = row.Cells[2].Text.ToString();
+            string date = row.Cells[3].Text.ToString();
             string name = "userName=" + nameLbl.Text;
             string queryStringTitle = "title=" + title;
             string queryStringDate = "date=" + date;
-            Response.Redirect("ArticlesPage.aspx?" + name + "&" + queryStringTitle + "&" + queryStringDate);
+            string queryStringAuthor = "author" + author;
+            Response.Redirect("ArticlesPage.aspx?" + name + "&" + queryStringTitle + "&" + queryStringDate+"&"+queryStringAuthor);
 
         }
 

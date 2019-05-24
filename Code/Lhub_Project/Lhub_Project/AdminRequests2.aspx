@@ -106,7 +106,7 @@
 
             <div class="col-md-8 text-center">
                 <span class="txt1 p-b-8"  style="">Pending Requests</span>
-                <asp:GridView ID="newGrid" runat="server" CssClass="mydatagrid" PagerStyle-CssClass="pager"
+                <asp:GridView ID="requestsGrid" runat="server" CssClass="mydatagrid" PagerStyle-CssClass="pager"
                     HeaderStyle-CssClass="header" RowStyle-CssClass="rows" AllowPaging="True" AutoGenerateColumns="False" OnSelectedIndexChanged="newGrid_SelectedIndexChanged" DataSourceID="SqlDataSource1">
                     <Columns>
                         <asp:BoundField DataField="article_title" HeaderText="Article Title" SortExpression="article_title" />
@@ -115,9 +115,18 @@
                         <asp:TemplateField HeaderText="Action">
 
                             <ItemTemplate>
-                                <asp:LinkButton ID="approveBtn" runat="server" OnClick="approveBtn_Click" CausesValidation="false" CommandName="Select" CssClass="myButton" Text="approve"></asp:LinkButton>
+                                <asp:LinkButton ID="approveBtn"  runat="server" OnClick="approveBtn_Click" CausesValidation="false" CommandName="Select" CssClass="myButton" Text="approve"></asp:LinkButton>
                                 <asp:LinkButton ID="rejectBtn" runat="server" OnClick="rejectBtn_Click" CausesValidation="false" CommandName="Select" CssClass="myButton" Text="reject"></asp:LinkButton>
 
+                            </ItemTemplate>
+
+                            <ControlStyle CssClass="myButton" />
+
+                        </asp:TemplateField>
+                        <asp:TemplateField HeaderText="View Details">
+
+                            <ItemTemplate>
+                                <asp:LinkButton ID="detailsBtn" runat="server" OnClick="detailsBtn_Click" CausesValidation="false" CommandName="Select" CssClass="myButton" Text="View Details"></asp:LinkButton>
                             </ItemTemplate>
 
                             <ControlStyle CssClass="myButton" />

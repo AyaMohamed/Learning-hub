@@ -29,6 +29,10 @@ namespace Lhub_Project
             string title = titletxt.Value.ToString();
             string categoryname = catList.SelectedValue.ToString();
             user.uploadArticle(name, text, title, categoryname);
+            Response.Write("<script>alert('Article has been uploaded successfully')</script>");
+            texttxt.Value = "";
+            catList.SelectedIndex = 0;
+            titletxt.Value = "";
         }
     }
 }

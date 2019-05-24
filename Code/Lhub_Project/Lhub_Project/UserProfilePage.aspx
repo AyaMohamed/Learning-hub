@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="UserProfilePage.aspx.cs" Inherits="Lhub_Project.UerProfilePage" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="UserProfilePage.aspx.cs" Inherits="Lhub_Project.UserProfilePage" %>
 
 <!DOCTYPE HTML>
 <html>
@@ -144,13 +144,14 @@
             <br />
             <br />
             <div class="col-md-8">
-                <asp:Label ID="Label2" runat="server" Text="Recently uploaded articles" Font-Size="X-Large" Font-Underline="True"></asp:Label>
                 <asp:GridView ID="newGrid" runat="server" Style="margin-left: 50px" CssClass="mydatagrid" PagerStyle-CssClass="pager"
                     HeaderStyle-CssClass="header" RowStyle-CssClass="rows" AutoGenerateColumns="False" DataSourceID="SqlDataSource1" OnSelectedIndexChanged="newGrid_SelectedIndexChanged" >
 
                     <Columns>
                         <asp:BoundField DataField="article_title" HeaderText="Article Title" SortExpression="article_title" />
                         <asp:BoundField DataField="status" HeaderText="Status" SortExpression="status" />
+                        <asp:BoundField DataField="user_name" HeaderText="Uploaded by" SortExpression="user_name" />
+
                         <asp:BoundField DataField="article_date" DataFormatString="{0:dd-MMM-yyyy}" HeaderText="Upload Date" SortExpression="article_date" />
                         <asp:TemplateField HeaderText="View Details">
 
@@ -170,7 +171,7 @@
                     <RowStyle CssClass="rows"></RowStyle>
 
                 </asp:GridView>
-                <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:Learning_LhubConnectionString6 %>" SelectCommand="SELECT [article_title], [status], [article_date] FROM [article_Temp] WHERE ([user_name] = @user_name) ORDER BY [article_date] DESC">
+                <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:Learning_LhubConnectionString6 %>" SelectCommand="SELECT [article_title], [status],[user_name], [article_date] FROM [article_Temp] WHERE ([user_name] = @user_name) ORDER BY [article_date] DESC">
                     <SelectParameters>
                         <asp:QueryStringParameter Name="user_name" QueryStringField="userName" Type="String" />
                     </SelectParameters>

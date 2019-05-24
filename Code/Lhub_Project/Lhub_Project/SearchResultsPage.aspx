@@ -85,9 +85,10 @@
                                         <img src="images/notification.png" /></a></li>
                                     <li><a href="UploadArticlePage.aspx?userName=<%=nameLbl.Text.ToString()%>">
                                         <img src="images/add.png" /></a></li>
-                                    <li><asp:TextBox ID="txtsrch" CssClass="srchLbl" Style="width: 100px; margin-left: 1%;" placeHolder="search" runat="server" TextMode="Search" OnTextChanged="txtsrch_TextChanged"></asp:TextBox>
+                                    <li>
+                                        <asp:TextBox ID="txtsrch" CssClass="srchLbl" Style="width: 100px; margin-left: 1%;" placeHolder="search" runat="server" TextMode="Search" OnTextChanged="txtsrch_TextChanged"></asp:TextBox>
                                     </li>
-                                  <li><a href="UserProfilePage.aspx?userName=<%=nameLbl.Text.ToString()%>">
+                                    <li><a href="UserProfilePage.aspx?userName=<%=nameLbl.Text.ToString()%>">
                                         <img src="images/user.png" /></a></li>
                                     <li>
                                         <asp:Label ID="nameLbl" CssClass="srchLbl" runat="server" Text="Label"></asp:Label></li>
@@ -99,7 +100,7 @@
                         </div>
                         <div class="row">
 
-                            <asp:GridView ID="GridView2" CssClass="mydatagrid" PagerStyle-CssClass="pager"
+                            <asp:GridView ID="resultsGrid" OnSelectedIndexChanged="newGrid_SelectedIndexChanged" CssClass="mydatagrid" PagerStyle-CssClass="pager"
                                 HeaderStyle-CssClass="header" RowStyle-CssClass="rows" AllowPaging="True" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource1">
                                 <Columns>
                                     <asp:BoundField DataField="Article_title" HeaderText="Article Title" SortExpression="Article_title" ItemStyle-BorderStyle="Solid" ReadOnly="True">
@@ -111,6 +112,15 @@
                                     <asp:BoundField DataField="Article_text" HeaderText="Article Text" SortExpression="Article_text">
                                         <ControlStyle CssClass="mydatagrid" />
                                     </asp:BoundField>
+                                    <asp:TemplateField HeaderText="View Details">
+
+                                        <ItemTemplate>
+                                            <asp:LinkButton ID="detailsBtn" runat="server" OnClick="detailsBtn_Click" CausesValidation="false" CommandName="Select" CssClass="login100-form-btn" Text="View Details"></asp:LinkButton>
+                                        </ItemTemplate>
+
+                                        <ControlStyle CssClass="login100-form-btn" />
+
+                                    </asp:TemplateField>
                                 </Columns>
                             </asp:GridView>
                             <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:Learning_LhubConnectionString3 %>" SelectCommand="SELECT [Article_title], [article_author], [Article_text] FROM [Article_lhub] WHERE ([Article_text] LIKE '%' + @Article_text + '%')">

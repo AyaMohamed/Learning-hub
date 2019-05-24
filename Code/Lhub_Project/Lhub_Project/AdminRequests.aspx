@@ -106,16 +106,14 @@
 
             <div class="col-md-8 text-center">
                 <span class="txt1 p-b-12">Pending Requests
-                   
-                    <asp:Button ID="addCategoryBtn" runat="server" Style="text-align: center; margin-left: 10%; display: inline-block" CssClass="myButton" Text="Add new Category" OnClick="addCategoryBtn_Click" />
                 </span>
 
-                <asp:GridView ID="newGrid" runat="server"  CssClass="mydatagrid" PagerStyle-CssClass="pager"
+                <asp:GridView ID="newGrid" runat="server" Style="margin-left: 50px; width: 100%" CssClass="mydatagrid" PagerStyle-CssClass="pager"
                     HeaderStyle-CssClass="header" RowStyle-CssClass="rows" AllowPaging="True" AutoGenerateColumns="False" OnSelectedIndexChanged="newGrid_SelectedIndexChanged" DataSourceID="SqlDataSource1">
                     <Columns>
-                         <asp:BoundField DataField="article_title" HeaderText="Article Title" SortExpression="article_title" />
+                        <asp:BoundField DataField="article_title" HeaderText="Article Title" SortExpression="article_title" />
                         <asp:BoundField DataField="article_date" HeaderText="Date uploaded" SortExpression="article_date" DataFormatString="{0:dd-MM-yyyy}" />
-                        <asp:BoundField DataField="user_name" HeaderText="Uploaded by" SortExpression="user_name" ReadOnly="True" />       
+                        <asp:BoundField DataField="user_name" HeaderText="Uploaded by" SortExpression="user_name" ReadOnly="True" />
                         <asp:TemplateField HeaderText="Action">
 
                             <ItemTemplate>
@@ -125,6 +123,7 @@
                             <ControlStyle CssClass="myButton" />
 
                         </asp:TemplateField>
+
                     </Columns>
                     <HeaderStyle CssClass="header"></HeaderStyle>
 
