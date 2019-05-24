@@ -29,7 +29,7 @@ namespace Lhub_Project
 
         protected void newGrid_SelectedIndexChanged(object sender, EventArgs e)
         {
-            GridViewRow row = newGrid.Rows[newGrid.SelectedRow.RowIndex];
+            GridViewRow row = requestsGrid.Rows[requestsGrid.SelectedRow.RowIndex];
 
             string title = row.Cells[0].Text.ToString();
             string date = row.Cells[1].Text.ToString();
