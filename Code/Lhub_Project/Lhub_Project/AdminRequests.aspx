@@ -180,7 +180,7 @@
                 <span class="txt1 p-b-12" Style="text-align: center; color: white; font-size: x-large; margin-left: 150px; display: inline-block; text-align: center">Pending Requests
                 </span>
 
-                <asp:GridView ID="newGrid" runat="server" Style="margin-left: 50px; width: 70%" CssClass="mydatagrid" PagerStyle-CssClass="pager"
+                <asp:GridView ID="requestsGrid" runat="server" Style="margin-left: 50px; width: 70%" CssClass="mydatagrid" PagerStyle-CssClass="pager"
                     HeaderStyle-CssClass="header" RowStyle-CssClass="rows" AllowPaging="True" AutoGenerateColumns="False" OnSelectedIndexChanged="newGrid_SelectedIndexChanged" DataSourceID="SqlDataSource1">
                     <Columns>
                         <asp:BoundField DataField="article_title" HeaderText="Article Title" SortExpression="article_title" />
