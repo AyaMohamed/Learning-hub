@@ -97,7 +97,7 @@ namespace Lhub_Project
             sqlCommand.ExecuteNonQuery();
             con.Close();
             int result = 0;
-            if (validateUserNameDoesnotExist(uName)==1)
+            if (validateUserNameDoesnotExist(uName) == 1)
             {
                 result = 1;
             }
@@ -210,7 +210,7 @@ namespace Lhub_Project
         public DataTable getArticlesFromCategory(string categoryName)
         {
             string catid = getCategoryIDFromName(categoryName);
-            string query = "select article_title as Title, article_author as Author ,article_date as Date from article_lhub where category_id=@catid order by article_date desc";
+            string query = "select article_title as Title, article_author as Author ,CONVERT(varchar(10), [article_date],105) as Date from article_lhub where category_id=@catid order by article_date desc";
             con.Open();
             SqlCommand sqlCommand = new SqlCommand(query, con);
             sqlCommand.Parameters.Add("@catid", SqlDbType.NVarChar).Value = catid;
@@ -240,11 +240,14 @@ namespace Lhub_Project
         public int getArticleCount()
         {
             string query = "select count(*) from article_lhub ";
+            string query2 = "select count (*) from article_temp";
             SqlCommand sqlCommand = new SqlCommand(query, con);
+            SqlCommand cmd = new SqlCommand(query2, con);
             con.Open();
             int count = (int)sqlCommand.ExecuteScalar();
+            int count2 = (int)cmd.ExecuteScalar();
             con.Close();
-            return count;
+            return count + count2;
         }
         public DataTable getRequests()
         {
@@ -443,5 +446,54 @@ namespace Lhub_Project
             return num;
         }
 
+        public string getArticleText(string author,string title,DateTime date)
+        {
+            string query = @"select article_text from article_temp where user_name =@uname 
+                    and article_title=@title and article_date=@articledate ";
+            con.Open();
+            string text = "";
+            SqlCommand sqlCommand = new SqlCommand(query, con);
+            sqlCommand.Parameters.AddWithValue("@uname", author);
+            sqlCommand.Parameters.AddWithValue("@title", title);
+            sqlCommand.Parameters.AddWithValue("@articledate", date);
+            SqlDataReader dr = sqlCommand.ExecuteReader();
+            while (dr.Read())
+            {
+                text = dr["article_text"].ToString();
+            }
+            con.Close();
+            return text;
+        }
+
+        public int checkUserFollowCategory(string username,string categoryname)
+        {
+            string userid = getUserID(username);
+            string categoryid = getCategoryIDFromName(categoryname);
+            string query = @"select count(*) from user_follow_category_lhub where user_id =@userid 
+                    and category_id=@catid ";
+            SqlCommand sqlCommand = new SqlCommand(query, con);
+            sqlCommand.Parameters.AddWithValue("@userid", userid);
+            sqlCommand.Parameters.AddWithValue("@catid", categoryid);
+            con.Open();
+            int count = Convert.ToInt32(sqlCommand.ExecuteScalar());
+            return count;
+        }
+
+        public string getUserNameFromEmail(string email)
+        {
+            string query = "select user_name from user_lhub where user_email =@email";
+            con.Open();
+            string name = "";
+            SqlCommand sqlCommand = new SqlCommand(query, con);
+            sqlCommand.Parameters.AddWithValue("@email", email);
+            SqlDataReader dr = sqlCommand.ExecuteReader();
+            while (dr.Read())
+            {
+                name = dr["user_name"].ToString();
+            }
+            con.Close();
+            dr.Close();
+            return name;
+        }
     }
 }

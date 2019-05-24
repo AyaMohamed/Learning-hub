@@ -33,23 +33,33 @@ namespace Lhub_Project
                 newGrid.DataSource = dt;
                 newGrid.DataBind();
             }
-            if(dt.Rows.Count==0)
+            if (dt.Rows.Count == 0)
             {
                 //Response.Write("<script>alert('No articles yet in this category !')</script>");
             }
             else
             {
                 newGrid.DataSource = dt;
+              
                 newGrid.DataBind();
             }
             name = Request.QueryString["userName"];
             nameLbl.Text = name;
-
+            int followFlag = dataAccessLayer.checkUserFollowCategory(name, category);
+            if (followFlag == 0)
+            {
+                followBtn.Text = "Follow";
+            }
+            else
+            {
+                followBtn.Text = "Unfollow";
+            }
 
         }
-     
+
         protected void followBtn_Click(object sender, EventArgs e)
         {
+
 
             if (followBtn.Text.ToLower().ToString() == "follow")
             {

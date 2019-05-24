@@ -22,13 +22,26 @@ namespace Lhub_Project
 
         protected void uploadArticleBtn_Click(object sender, EventArgs e)
         {
+            
 
             UserClass user = new UserClass();
             string name = nameLbl.Text.ToString();
             string text = texttxt.Value.ToString();
             string title = titletxt.Value.ToString();
             string categoryname = catList.SelectedValue.ToString();
-            user.uploadArticle(name, text, title, categoryname);
+            if (name == "" || text == "" || title == "")
+            {
+                string script = "alert(\"Please fill all fields\");";
+                ScriptManager.RegisterStartupScript(this, GetType(), "ServerControlScript", script, true);
+            }
+            else
+            {
+                user.uploadArticle(name, text, title, categoryname);
+                Response.Write("<script>alert('Article has been uploaded successfully')</script>");
+                texttxt.Value = "";
+                catList.SelectedIndex = 0;
+                titletxt.Value = "";
+            }
         }
     }
 }

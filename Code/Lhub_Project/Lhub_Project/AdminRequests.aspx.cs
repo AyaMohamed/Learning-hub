@@ -10,7 +10,7 @@ namespace Lhub_Project
     public partial class AdminRequests : System.Web.UI.Page
     {
         public static string option;
-
+        public static int count;
         protected void Page_Load(object sender, EventArgs e)
         {
             nameLbl.Text = Request.QueryString["userName"];
@@ -30,13 +30,17 @@ namespace Lhub_Project
         protected void newGrid_SelectedIndexChanged(object sender, EventArgs e)
         {
             GridViewRow row = newGrid.Rows[newGrid.SelectedRow.RowIndex];
-           
+
             string title = row.Cells[0].Text.ToString();
+            string date = row.Cells[1].Text.ToString();
             string author = row.Cells[2].Text.ToString();
-            string name = "username=" + nameLbl.Text;
+            string name = "userName=" + nameLbl.Text;
+
             string queryStringTitle = "title=" + title;
             string queryStringAuthor = "author=" + author;
-            Response.Redirect("AdminRequests2.aspx?" +name+"&"+ queryStringTitle + "&" + queryStringAuthor);
+            string queryStringDate = "date=" + date;
+            
+                Response.Redirect("AdminRequests2.aspx?" + name + "&" + queryStringTitle + "&" + queryStringAuthor);
             
         }
 
@@ -44,5 +48,6 @@ namespace Lhub_Project
         {
 
         }
+       
     }
 }

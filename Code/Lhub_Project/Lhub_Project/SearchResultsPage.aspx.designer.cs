@@ -31,13 +31,13 @@ namespace Lhub_Project {
         protected global::System.Web.UI.WebControls.Label nameLbl;
         
         /// <summary>
-        /// GridView2 control.
+        /// resultsGrid control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GridView2;
+        protected global::System.Web.UI.WebControls.GridView resultsGrid;
         
         /// <summary>
         /// SqlDataSource1 control.

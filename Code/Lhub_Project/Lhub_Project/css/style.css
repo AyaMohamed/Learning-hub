@@ -634,9 +634,10 @@ h1, h2, h3, h4, h5, h6, figure {
   content: "\e0c4"; }
 
 .panel-heading a.collapsed {
-  background: #f2f3f7;
-  border: 1px solid #e6e6e6 !important;
-  color: #333333; }
+    background: transparent;
+    border: 1px solid #e79a80 !important;
+    color: white;
+}
 
 .panel-body {
   padding: 1.5em;
