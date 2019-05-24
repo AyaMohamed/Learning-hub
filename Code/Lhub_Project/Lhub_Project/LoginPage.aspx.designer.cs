@@ -22,13 +22,13 @@ namespace Lhub_Project {
         protected global::System.Web.UI.WebControls.TextBox usernameTxt;
         
         /// <summary>
-        /// RequiredFieldValidator1 control.
+        /// userNameRequiredValidator control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator1;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator userNameRequiredValidator;
         
         /// <summary>
         /// passwordTxt control.
@@ -38,15 +38,6 @@ namespace Lhub_Project {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox passwordTxt;
-        
-        /// <summary>
-        /// RequiredFieldValidator2 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator2;
         
         /// <summary>
         /// loginBtn control.

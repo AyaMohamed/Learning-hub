@@ -33,7 +33,8 @@
 
     <div class="limiter">
         <div class="container-login100">
-            <div class="wrap-login100 p-l-85 p-r-85 p-t-55 p-b-55">
+            <div class="wrap-login100 p-l-85 p-r-85 p-t-55 p-b-55" style="background: rgba(0,0,0,.5); position: relative; top: 20%; margin: auto; width: 50%; height: 50%; border-radius: 0.35em; /* box-shadow: 0 3px 10px 0 rgba(0, 0, 0, 0.2); */
+            text-align: center;">
                 <form class="login100-form validate-form flex-sb flex-w" method="post" runat="server">
                     <span class="login100-form-title p-b-32">Account Login
                     </span>
@@ -41,19 +42,19 @@
                     <br />
                     <br />
                     <br />
-                    <span class="txt1 p-b-11">Username
+                    <span class="txt1 p-b-11" style="font-size:20px">Username
                     </span>
                     <div class="wrap-input100 validate-input m-b-36" data-validate="Username is required">
                         <asp:TextBox ID="usernameTxt" runat="server" CssClass="input100" ValidationGroup=""></asp:TextBox>
                         <!--<input class="input100" type="text" name="username" >-->
                         <p>
-                        <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" Style="top: 56px; left: 378px; position: absolute; height: 22px; width: 128px"
-                            Display="Dynamic" ForeColor="Red" ErrorMessage="RequiredFieldValidator"
-                            ControlToValidate="usernameTxt">username is required</asp:RequiredFieldValidator>
-                        <span class="focus-input100"></span>
+                            <asp:RequiredFieldValidator ID="userNameRequiredValidator" runat="server" Style="top: 56px; left: 378px; position: absolute; height: 22px; width: 128px"
+                                Display="Dynamic" ForeColor="Red" ErrorMessage="RequiredFieldValidator"
+                                ControlToValidate="usernameTxt">username is required</asp:RequiredFieldValidator>
+                            <span class="focus-input100"></span>
                     </div>
 
-                    <span class="txt1 p-b-11" id="#password">Password
+                    <span class="txt1 p-b-11" style="font-size:20px" id="#password">Password
                     </span>
                     <div class="wrap-input100 validate-input m-b-12" data-validate="Password is required">
 
@@ -63,9 +64,9 @@
                         <asp:TextBox ID="passwordTxt" CssClass="input100" runat="server" TextMode="Password"></asp:TextBox>
                         <!--<input class="input100" type="password" name="pass" >-->
 
-                        <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" Style="top: 56px; left: 378px; position: absolute; height: 22px; width: 128px"
+                       <%-- <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" Style="top: 56px; left: 378px; position: absolute; height: 22px; width: 128px"
                             ErrorMessage="RequiredFieldValidator"
-                            ControlToValidate="passwordTxt" Display="Dynamic" ForeColor="Red">Password is required</asp:RequiredFieldValidator>
+                            ControlToValidate="passwordTxt" Display="Dynamic" ForeColor="Red">Password is required</asp:RequiredFieldValidator>--%>
                         <span class="focus-input100"></span>
                     </div>
 
@@ -75,7 +76,7 @@
                         <asp:Button ID="loginBtn" runat="server" CssClass="login100-form-btn" Text="Login" OnClick="loginBtn_Click" />
                         <asp:Button ID="forgetPassBtn" runat="server" CssClass="login100-form-btn" Text="Forget your Password" OnClick="forgetPassBtn_Click" />
 
-                        <a href="SignUpPage.aspx" class="dis-block txt3 hov1 p-r-30 p-t-10 p-b-10 p-l-30" style="font-size: large; color: #f1f1f1;">Create account
+                        <a href="SignUpPage.aspx" id="newAccountLink" class="dis-block txt3 hov1 p-r-30 p-t-10 p-b-10 p-l-30" style="font-size: large; color: #f1f1f1;">Create account
 							<i class="fa fa-long-arrow-right m-l-5"></i>
                         </a>
                     </div>

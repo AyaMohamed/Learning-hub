@@ -33,7 +33,8 @@
 
     <div class="limiter">
         <div class="container-login100">
-            <div class="wrap-login100 p-l-85 p-r-85 p-t-55 p-b-55">
+            <div class="wrap-login100 p-l-85 p-r-85 p-t-55 p-b-55" style="background: rgba(0,0,0,.5); position: relative; top: 20%; margin: auto; width: 50%; height: 50%; border-radius: 0.35em; /* box-shadow: 0 3px 10px 0 rgba(0, 0, 0, 0.2); */
+            text-align: center;">
                 <form class="login100-form validate-form flex-sb flex-w" method="post" runat="server">
                     <span class="login100-form-title p-b-32">Admin Login
                     </span>
@@ -65,7 +66,7 @@
 
                     <div class="container-login100-form-btn">
                         <asp:Button ID="loginBtn" runat="server" CssClass="login100-form-btn" Text="Login" OnClick="loginBtn_Click" />
-                      
+
                     </div>
 
                 </form>

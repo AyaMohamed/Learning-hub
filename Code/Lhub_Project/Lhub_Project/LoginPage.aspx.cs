@@ -21,17 +21,25 @@ namespace Lhub_Project
             UserClass user = new UserClass();
             string username = usernameTxt.Text.ToString();
             string password = passwordTxt.Text.ToString();
-            int flag = user.login_user(username, password);
-            if (flag == 1)
+            if (username == "" || password == "")
             {
-                string queryString = "userName=" + username;
-                Response.Redirect("HomePage.aspx?" + queryString);
+                string script = "alert(\"Please enter full data\");";
+                ScriptManager.RegisterStartupScript(this, GetType(), "ServerControlScript", script, true);
             }
             else
             {
-                string script = "alert(\"Username or password is incorrect\");";
-                ScriptManager.RegisterStartupScript(this, GetType(), "ServerControlScript", script, true);
-                //display alert"username or password incorrect"
+                int flag = user.login_user(username, password);
+                if (flag == 1)
+                {
+                    string queryString = "userName=" + username;
+                    Response.Redirect("HomePage.aspx?" + queryString);
+                }
+                else
+                {
+                    string script = "alert(\"Username or password is incorrect\");";
+                    ScriptManager.RegisterStartupScript(this, GetType(), "ServerControlScript", script, true);
+                    //display alert"username or password incorrect"
+                }
             }
         }
 

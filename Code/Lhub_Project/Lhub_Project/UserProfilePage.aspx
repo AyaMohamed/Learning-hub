@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="UserProfilePage.aspx.cs" Inherits="Lhub_Project.UerProfilePage" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="UserProfilePage.aspx.cs" Inherits="Lhub_Project.UserProfilePage" %>
 
 <!DOCTYPE HTML>
 <html>
@@ -60,6 +60,7 @@
         @-ms-viewport {
             width: device-width;
         }
+
         .container-login100-form-btn {
             width: 100%;
             display: -webkit-box;
@@ -68,7 +69,6 @@
             display: -ms-flexbox;
             display: flex;
             flex-wrap: wrap;
-            
         }
 
         .login100-form-btn {
@@ -98,16 +98,53 @@
                 background-color: #e2c1c7;
                 color: black;
             }
+
+        .mydatagrid {
+            width: 80%;
+            min-width: 80%;
+            align-content: center;
+            align-items: center;
+            align-self: center;
+            vertical-align: middle;
+            margin-left: 10%;
+            background: #e0121200;
+            float: right;
+            margin-top: 85px;
+        }
+
+            .mydatagrid td {
+                padding: 5px;
+            }
+
+        .rows {
+            font-family: Arial;
+            font-size: 14px;
+            color: #fcfcfc;
+            min-height: 25px;
+            text-align: left;
+            border: none 0px transparent;
+            background: rgba(0, 0, 0, 0.5);
+        }
+
+        .header {
+            background: rgba(0, 0, 0, 0.5);
+            font-family: Arial;
+            color: White;
+            border: none 0px transparent;
+            height: 25px;
+            text-align: center;
+            font-size: 16px;
+        }
     </style>
 </head>
-<body style="background-image: url(../images/122a6541-7fca-41a8-9e91-1cc30b88e1db.jpg); background-repeat: repeat; background-size: cover">
+<body style="background-image: url(../images/76ba31b9-b382-4ae8-929e-3327c7267c94.jpg); background-repeat: repeat; background-size: cover">
 
     <div class="colorlib-loader"></div>
     <form style="display: inline;" runat="server" method="post">
         <div id="page">
             <nav class="colorlib-nav" role="navigation">
 
-                <div class="top-menu" style="height: 30px; vertical-align: middle;">
+                <div class="top-menu" style="height: 120px; vertical-align: middle;">
                     <div class="container">
                         <div class="row" style="margin-top: -15px;">
 
@@ -143,14 +180,16 @@
             </nav>
             <br />
             <br />
-            <div class="col-md-8">
-                <asp:Label ID="Label2" runat="server" Text="Recently uploaded articles" Font-Size="X-Large" Font-Underline="True"></asp:Label>
-                <asp:GridView ID="newGrid" runat="server" Style="margin-left: 50px" CssClass="mydatagrid" PagerStyle-CssClass="pager"
-                    HeaderStyle-CssClass="header" RowStyle-CssClass="rows" AutoGenerateColumns="False" DataSourceID="SqlDataSource1" OnSelectedIndexChanged="newGrid_SelectedIndexChanged" >
+            <div class="col-md-8" style="background: rgba(0,0,0,.5); margin-left: 10%;padding-bottom:75px; position: relative; width: 70%; height: 70%; border-radius: 0.35em; /* box-shadow: 0 3px 10px 0 rgba(0, 0, 0, 0.2); */
+            text-align: center;">
+                <asp:GridView ID="newGrid" runat="server" Style="margin-left: 50px;margin-right:10%" CssClass="mydatagrid" PagerStyle-CssClass="pager"
+                    HeaderStyle-CssClass="header" RowStyle-CssClass="rows" AutoGenerateColumns="False" DataSourceID="SqlDataSource1" OnSelectedIndexChanged="newGrid_SelectedIndexChanged">
 
                     <Columns>
                         <asp:BoundField DataField="article_title" HeaderText="Article Title" SortExpression="article_title" />
                         <asp:BoundField DataField="status" HeaderText="Status" SortExpression="status" />
+                        <asp:BoundField DataField="user_name" HeaderText="Uploaded by" SortExpression="user_name" />
+
                         <asp:BoundField DataField="article_date" DataFormatString="{0:dd-MMM-yyyy}" HeaderText="Upload Date" SortExpression="article_date" />
                         <asp:TemplateField HeaderText="View Details">
 
@@ -170,7 +209,7 @@
                     <RowStyle CssClass="rows"></RowStyle>
 
                 </asp:GridView>
-                <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:Learning_LhubConnectionString6 %>" SelectCommand="SELECT [article_title], [status], [article_date] FROM [article_Temp] WHERE ([user_name] = @user_name) ORDER BY [article_date] DESC">
+                <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:Learning_LhubConnectionString6 %>" SelectCommand="SELECT [article_title], [status],[user_name], [article_date] FROM [article_Temp] WHERE ([user_name] = @user_name) ORDER BY [article_date] DESC">
                     <SelectParameters>
                         <asp:QueryStringParameter Name="user_name" QueryStringField="userName" Type="String" />
                     </SelectParameters>
