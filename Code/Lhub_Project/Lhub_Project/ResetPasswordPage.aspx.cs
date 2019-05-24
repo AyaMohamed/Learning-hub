@@ -28,8 +28,9 @@ namespace Lhub_Project
             {
                 string script = "alert(\"Password changed successfully\");";
                 ScriptManager.RegisterStartupScript(this, GetType(), "ServerControlScript", script, true);
-
-                Response.Redirect("HomePage.aspx");
+                DataAccessLayer dal = new DataAccessLayer();
+                string name = dal.getUserNameFromEmail(email);
+                Response.Redirect("HomePage.aspx?userName=" + name);
             }
         }
     }

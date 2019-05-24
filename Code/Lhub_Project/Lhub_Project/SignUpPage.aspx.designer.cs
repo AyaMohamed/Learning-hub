@@ -22,13 +22,13 @@ namespace Lhub_Project {
         protected global::System.Web.UI.WebControls.TextBox usernametxt;
         
         /// <summary>
-        /// RequiredFieldValidator3 control.
+        /// userNameRequiredValidator control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator3;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator userNameRequiredValidator;
         
         /// <summary>
         /// passwordtxt control.
@@ -40,22 +40,22 @@ namespace Lhub_Project {
         protected global::System.Web.UI.WebControls.TextBox passwordtxt;
         
         /// <summary>
-        /// RegularExpressionValidator2 control.
+        /// passwordExpressionValidator control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator2;
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator passwordExpressionValidator;
         
         /// <summary>
-        /// RequiredFieldValidator2 control.
+        /// passwordRequiredValidator control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator2;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator passwordRequiredValidator;
         
         /// <summary>
         /// Confrim_passtxt control.
@@ -67,22 +67,22 @@ namespace Lhub_Project {
         protected global::System.Web.UI.WebControls.TextBox Confrim_passtxt;
         
         /// <summary>
-        /// RegularExpressionValidator3 control.
+        /// confirmPasswordExpressionValidator control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator3;
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator confirmPasswordExpressionValidator;
         
         /// <summary>
-        /// RequiredFieldValidator1 control.
+        /// confirmPasswordRequiredValidator control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator1;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator confirmPasswordRequiredValidator;
         
         /// <summary>
         /// CompareValidator1 control.
@@ -103,22 +103,22 @@ namespace Lhub_Project {
         protected global::System.Web.UI.WebControls.TextBox Emailtxt;
         
         /// <summary>
-        /// RegularExpressionValidator1 control.
+        /// emailExpressionValidator control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator1;
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator emailExpressionValidator;
         
         /// <summary>
-        /// RequiredFieldValidator6 control.
+        /// emailRequiredValidator control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator6;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator emailRequiredValidator;
         
         /// <summary>
         /// FirstNametxt control.
@@ -139,12 +139,12 @@ namespace Lhub_Project {
         protected global::System.Web.UI.WebControls.TextBox LastNametxt;
         
         /// <summary>
-        /// SignUp control.
+        /// SignUpBtn control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button SignUp;
+        protected global::System.Web.UI.WebControls.Button SignUpBtn;
     }
 }
