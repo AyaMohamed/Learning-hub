@@ -13,6 +13,7 @@ namespace Lhub_Project
         {
             nameLbl.Text = Request.QueryString["name"];
             txtsrch.Text = Request.QueryString["srch"];
+           
 
         }
 
@@ -21,11 +22,13 @@ namespace Lhub_Project
             GridViewRow row = resultsGrid.Rows[resultsGrid.SelectedRow.RowIndex];
 
             string title = row.Cells[0].Text.ToString();
-            string date = row.Cells[2].Text.ToString();
+            string date = row.Cells[1].Text.ToString();
             string name = "userName=" + nameLbl.Text;
+            string author = row.Cells[2].Text.ToString();
+            string queryStringAuthor = "author=" + author;
             string queryStringTitle = "title=" + title;
             string queryStringDate = "date=" + date;
-            Response.Redirect("ArticlesPage.aspx?" + name + "&" + queryStringTitle + "&" + queryStringDate);
+            Response.Redirect("ArticlesPage.aspx?" + name + "&" + queryStringTitle + "&" + queryStringDate+"&"+queryStringAuthor);
 
         }
 

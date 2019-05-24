@@ -62,14 +62,14 @@
         }
     </style>
 </head>
-<body style="background-image: url(../images/aa40dde6-485c-4e91-a3b0-7b9c9bb90a5b.jpg); background-repeat: repeat; background-size: cover">
+<body style="background-image: url(../images/76ba31b9-b382-4ae8-929e-3327c7267c94.jpg); background-repeat: repeat; background-size: cover">
 
     <div class="colorlib-loader"></div>
     <form style="display: inline;" runat="server" method="post">
         <div id="page">
             <nav class="colorlib-nav" role="navigation">
 
-                <div class="top-menu" style="height: 30px; vertical-align: middle;">
+                <div class="top-menu" style="height: 120px; vertical-align: middle;">
                     <div class="container">
                         <div class="row" style="margin-top: -15px;">
 
@@ -86,7 +86,7 @@
                                     <li><a href="CategoryPage.aspx?catName=Biotechnology&userName=<%=nameLbl.Text.ToString()%>">Biotechnology</a></li>
                                     <li><a href="#">
                                         <img src="images/notification.png" /></a></li>
-                                    <li><a href="UploadArticlePage.aspx?userName=<%=nameLbl.Text.ToString()%>">
+                                    <li><a id="addBtn" href="UploadArticlePage.aspx?userName=<%=nameLbl.Text.ToString()%>">
                                         <img src="images/add.png" /></a></li>
                                     <li>
                                         <asp:TextBox ID="txtsrch" CssClass="srchLbl" Style="width: 100px; margin-left: 1%;" placeHolder="search" runat="server" TextMode="Search"></asp:TextBox></li>
@@ -105,15 +105,16 @@
             </nav>
             <br />
             <br />
-            <div class="col-md-8">
-                <asp:Label ID="Label2" runat="server" Text="Recently uploaded articles" Font-Size="X-Large" Font-Underline="True"></asp:Label>
+            <div class="col-md-8" style="background: rgba(0,0,0,.5); margin-left: 20%; position: relative; width: 50%; height: 70%; border-radius: 0.35em; /* box-shadow: 0 3px 10px 0 rgba(0, 0, 0, 0.2); */
+            text-align: center;">
+                <asp:Label ID="Label2" runat="server" Text="Recently uploaded articles :" style="font-size:x-large" ForeColor="White" Font-Underline="True"></asp:Label>
 
-                <div class="fancy-collapse-panel" style="width: 60%; background-color: transparent; align-items: center; margin-left: 50%; margin-right: 70%; /* margin-top: 7%; */">
-                    <div class="panel-group" id="accordion" style="background-color: transparent;" role="tablist" aria-multiselectable="true">
+                <div class="fancy-collapse-panel"  margin-left: 30%; margin-right: 70%; /* margin-top: 7%; */">
+                    <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
                         <div class="panel panel-default" style="background: transparent;" id="panel1" runat="server">
-                            <div class="panel-heading" style="background: transparent; font-size:xx-large; border: 1px solid #e79a80 !important; color: white;" role="tab" id="headingOne">
+                            <div class="panel-heading" style="background: transparent; font-size: xx-large; border: 1px solid #e79a80 !important; color: white;" role="tab" id="headingOne">
                                 <h4 class="panel-title">
-                                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne" class="collapsed">
+                                    <a data-toggle="collapse" style="font-size:x-large" data-parent="#accordion" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne" class="collapsed">
                                         <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
                                     </a>
                                 </h4>
@@ -121,7 +122,7 @@
                             <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne" aria-expanded="false" style="height: 0px;">
                                 <div class="panel-body">
                                     <div class="row">
-                                        <div class="col-md-6">
+                                        <div class="col-md-12">
                                             <asp:Label ID="article1ID" Style="word-wrap: normal;" runat="server" Text="Label"></asp:Label>
                                         </div>
                                     </div>
@@ -132,14 +133,18 @@
                         <div class="panel panel-default" style="background: transparent;" id="panel2" runat="server">
                             <div class="panel-heading" style="background: transparent;" role="tab" id="headingTwo">
                                 <h4 class="panel-title">
-                                    <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                    <a class="collapsed" data-toggle="collapse" style="font-size:x-large" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
                                         <asp:Label ID="Label3" runat="server" Text="Label"></asp:Label>
                                     </a>
                                 </h4>
                             </div>
                             <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo" aria-expanded="false">
                                 <div class="panel-body">
-                                    <asp:Label ID="article2ID" Style="word-wrap: normal;" runat="server" Text="Label"></asp:Label>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <asp:Label ID="article2ID" Style="word-wrap: normal;" runat="server" Text="Label"></asp:Label>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -147,44 +152,57 @@
                         <div class="panel panel-default" style="background-color: transparent;" id="panel3" runat="server">
                             <div class="panel-heading" style="background: transparent;" role="tab" id="headingThree">
                                 <h4 class="panel-title">
-                                    <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                    <a class="collapsed" style="font-size:x-large" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
                                         <asp:Label ID="Label4" runat="server" Text="Label"></asp:Label>
                                     </a>
                                 </h4>
                             </div>
                             <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree" aria-expanded="false">
                                 <div class="panel-body">
-                                    <asp:Label ID="article3ID" Style="word-wrap: normal;" runat="server" Text="Label"></asp:Label>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <asp:Label ID="article3ID" Style="word-wrap: normal;" runat="server" Text="Label"></asp:Label>
+                                        </div>
+                                    </div>
                                 </div>
+
                             </div>
                         </div>
                         <br />
                         <div class="panel panel-default" style="background: transparent;" id="panel4" runat="server">
                             <div class="panel-heading" style="background: transparent;" role="tab" id="headingFour">
                                 <h4 class="panel-title">
-                                    <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false" aria-controls="collapseThree">
+                                    <a class="collapsed" style="font-size:x-large" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false" aria-controls="collapseThree">
                                         <asp:Label ID="Label5" runat="server" Text="Label"></asp:Label>
                                     </a>
                                 </h4>
                             </div>
                             <div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour" aria-expanded="false">
                                 <div class="panel-body">
-                                    <asp:Label ID="article4ID" Style="word-wrap: normal;" runat="server" Text="Label"></asp:Label>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <asp:Label ID="article4ID" Style="word-wrap: normal;" runat="server" Text="Label"></asp:Label>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                         <br />
                         <div class="panel panel-default" style="background: transparent;" id="panel5" runat="server">
-                            <div class="panel-heading" role="tab" id="headingFive">
+                            <div class="panel-heading" style="background: transparent;" role="tab" id="headingFive">
                                 <h4 class="panel-title">
-                                    <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseFive" aria-expanded="false" aria-controls="collapseThree">
+                                    <a class="collapsed" style="font-size:x-large" data-toggle="collapse" data-parent="#accordion" href="#collapseFive" aria-expanded="false" aria-controls="collapseThree">
                                         <asp:Label ID="Label7" runat="server" Text="Label"></asp:Label>
                                     </a>
                                 </h4>
                             </div>
                             <div id="collapseFive" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFive" aria-expanded="false">
                                 <div class="panel-body">
-                                    <asp:Label ID="article5ID" Style="word-wrap: normal;" runat="server" Text="Label"></asp:Label>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <asp:Label ID="article5ID" Style="word-wrap: normal;" runat="server" Text="Label"></asp:Label>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>

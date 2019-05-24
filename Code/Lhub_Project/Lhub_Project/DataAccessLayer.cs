@@ -210,7 +210,7 @@ namespace Lhub_Project
         public DataTable getArticlesFromCategory(string categoryName)
         {
             string catid = getCategoryIDFromName(categoryName);
-            string query = "select article_title as Title, article_author as Author ,article_date as Date from article_lhub where category_id=@catid order by article_date desc";
+            string query = "select article_title as Title, article_author as Author ,CONVERT(varchar(10), [article_date],105) as Date from article_lhub where category_id=@catid order by article_date desc";
             con.Open();
             SqlCommand sqlCommand = new SqlCommand(query, con);
             sqlCommand.Parameters.Add("@catid", SqlDbType.NVarChar).Value = catid;
@@ -463,6 +463,37 @@ namespace Lhub_Project
             }
             con.Close();
             return text;
+        }
+
+        public int checkUserFollowCategory(string username,string categoryname)
+        {
+            string userid = getUserID(username);
+            string categoryid = getCategoryIDFromName(categoryname);
+            string query = @"select count(*) from user_follow_category_lhub where user_id =@userid 
+                    and category_id=@catid ";
+            SqlCommand sqlCommand = new SqlCommand(query, con);
+            sqlCommand.Parameters.AddWithValue("@userid", userid);
+            sqlCommand.Parameters.AddWithValue("@catid", categoryid);
+            con.Open();
+            int count = Convert.ToInt32(sqlCommand.ExecuteScalar());
+            return count;
+        }
+
+        public string getUserNameFromEmail(string email)
+        {
+            string query = "select user_name from user_lhub where user_email =@email";
+            con.Open();
+            string name = "";
+            SqlCommand sqlCommand = new SqlCommand(query, con);
+            sqlCommand.Parameters.AddWithValue("@email", email);
+            SqlDataReader dr = sqlCommand.ExecuteReader();
+            while (dr.Read())
+            {
+                name = dr["user_name"].ToString();
+            }
+            con.Close();
+            dr.Close();
+            return name;
         }
     }
 }

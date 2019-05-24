@@ -86,6 +86,7 @@
     <Content Include="images\935a20b3-1101-4d3b-8d9d-aa3a8c00d7fb.jpg" />
     <Content Include="images\aa40dde6-485c-4e91-a3b0-7b9c9bb90a5b.jpg" />
     <Content Include="images\background1.jpg" />
+    <Content Include="images\follow.png" />
     <Content Include="images\icons\logo.ico" />
     <Content Include="CategoryPage.aspx" />
     <Content Include="css\animate.css" />

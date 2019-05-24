@@ -52,6 +52,7 @@ namespace Lhub_Project
             if (review == 2 && count == 0)
             {
                 int result = admin.reviewArticle(option, author, title);
+                review = 0;
                 if (result == 1)
                 {
                     requestsGrid.DataBind();
